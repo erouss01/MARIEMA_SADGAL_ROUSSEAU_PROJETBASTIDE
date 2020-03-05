@@ -14,8 +14,8 @@
     <body>
        
  <form  method="post">
-            Login: <input type="text" name="contact"><br>
-            Password: <input type="password" name="code"><br>
+            Pseudo: <input type="text" name="contact"><br>
+            Mot de passe: <input type="password" name="code"><br>
             <input type="submit" value="Submit">
         </form> 
  

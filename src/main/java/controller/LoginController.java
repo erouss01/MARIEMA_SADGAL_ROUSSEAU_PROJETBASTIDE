@@ -5,6 +5,7 @@
  */
 package controller;
 
+import comptoirs.model.dao.CategorieFacade;
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.dao.CommandeFacade;
 import comptoirs.model.entity.Client;
@@ -31,7 +32,7 @@ public class LoginController {
     @Inject // Le DAO (auto-généré) qui gère les entités "Client"
     ClientFacade facade;
     @Inject
-    CommandeFacade dao;
+    CategorieFacade dao;
     @Inject
     Models models; // Pour transmettre les infos à la vue
 
@@ -47,8 +48,14 @@ public class LoginController {
 
         try {
             Client c = facade.find(codeClient);
+            if(c.getContact().equals(contactClient)){
             BonDeCommande bon= new BonDeCommande();
-         return "categorieEditor.jsp";
+            models.put("categories", dao.findAll());
+         return "showAllCategories.jsp";
+            }else{
+                 models.put("databaseErrorMessage", "Le pseudo/ mot de passe est incorrect");
+            }
+                  
         } catch (NullPointerException e) {
             // Erreur possible : il existe déjà une catégorie avec ce libellé
             Logger.getLogger("Comptoirs").log(Level.INFO, "Echec{0}", e.getLocalizedMessage());

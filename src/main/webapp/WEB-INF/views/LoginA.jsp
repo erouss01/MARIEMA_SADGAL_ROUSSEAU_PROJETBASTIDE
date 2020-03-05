@@ -12,10 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form>
+        <form method="post">
             Login: <input type="text" name="Contact"><br>
             Password: <input type="password" name="Code"><br>
             <input type="submit" value="Submit">
         </form> 
+        <c:if test="${not empty databaseErrorMessage}">
+			<span style="color: red;">${databaseErrorMessage}</span>
+		</c:if>
     </body>
 </html>
