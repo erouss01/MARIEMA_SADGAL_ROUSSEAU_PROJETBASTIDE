@@ -1,0 +1,185 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10 févr. 2020, 14:51:43
+    Author     : Kency
+*/
+
+body{
+    min-height: 100%;
+    margin:0;
+    padding:0;
+}
+
+
+
+html{
+    height: 100%;
+    margin:0;
+    width:100%;
+}
+
+header{
+    width:80%;
+    margin:auto;
+    height: 75px;
+    border-bottom: 4px solid #444E4D;
+}
+
+header #logo{
+    float: left;
+    width:66%;
+    
+}
+
+header #articles,header #compte, header #panier{
+    text-align: center;
+    width:11%;
+    display: inline-block;
+    color:#434D4C;
+}
+
+#articles img{
+    width:25px;
+    height:25px;
+}
+
+div#logo img{
+    width:200px;
+}
+
+
+
+#compte img{
+    width:25px;
+    height:25px;
+}
+
+div#panier img{
+    width:40px;
+    height:40px;
+    margin-bottom: -6px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited{
+    color:black;
+}
+
+/* ------------------------------------------------------- */
+
+#slider {
+    background-color:white;
+    position: relative;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:20px;
+    overflow: hidden;
+    height: 400px;
+    border:1px solid black;
+    box-shadow:8px 10px 10px #888888;
+}
+
+#slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    max-height: 100%;
+    animation-name: slide;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation: slide 20s infinite ease-in-out forwards;
+}
+
+#slides figure {
+    display: inline-block;
+    width: 100vw;
+    max-height: 100%;
+    margin: 0;
+}
+
+#slides figure img {
+    position: relative;
+    max-width: 1335px;
+    transform: translateY(-50%);
+}
+
+#img1,#img2{
+    top:50%;
+}
+
+#img3{
+    top:40%;
+}
+
+
+
+@keyframes slide {
+    0%, 20%, 100% {
+        left: 0; /*1ère image*/
+    }
+    35%, 50% {
+        left: -100vw; /*2ème image*/
+    }
+    70%, 95% {
+        left: -200vw; /*3ème image*/
+    }
+}
+
+
+#partiedeux{
+    min-height: 100%;
+    min-width: 100%;
+    margin-top:65px;
+    padding-bottom:60px;
+    margin-left:0;
+    margin-right: 0;
+    background:#f5f4f2;
+}
+
+h1{
+    padding-top:100px;
+    padding-left:200px;
+    text-align:left;
+    font-size:1.8rem;
+    font-weight:300;
+    color:#0e3368;
+    font-family:Ubuntu,sans-serif;
+}
+
+#partiedeux #rayon button{
+    display:inline-block;
+    vertical-align: middle;
+    background:white;
+    width:250px;
+    height:250px;
+    border:2px solid transparent;
+    margin:20px;
+}
+
+#partiedeux #rayon button img{
+   max-width:100%;
+   max-height: 50%;
+}
+
+
+
+#partiedeux #rayon button:hover{
+    cursor:pointer;
+    border:2px solid #abcdef;
+}
+
+#partiedeux #rayon{
+    text-align:center;
+}
+

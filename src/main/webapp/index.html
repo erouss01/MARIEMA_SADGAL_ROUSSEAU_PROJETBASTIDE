@@ -1,19 +1,55 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Les Comptoirs (MVC / AJAX)</title>
+		<title>ESSA</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <link href="accueil.css" rel="stylesheet"/>
+                <script src="index.js" type="text/javascript"></script>
 	</head>
 	<body>
-		
-        <p> Bienvenu dans notre application</p>
-        <ul>
-            <li><a href="mvc/Login">Client</a></li>
-            <li><a href="mvc/LoginA">Administrateur</a></li>
-            <li><a href="mvc/Profil">Profil</a></li>
-            <li><a href="mvc/produits">Produits</a></li>
+            <!--<ul>
+                 <li><a href="mvc/Login">Client</a></li>
+                 <li><a href="mvc/LoginA">Administrateur</a></li>
+             </ul>-->
             
-        </ul>
+            <header> 
+                <div id="logo"> <a href=""> <img src="image\\logo1.png" alt="logo"/> </a> </div>
+                <div id="articles"> <a href=""> <img src="image\\plus.png" alt="articles"/> <br>Tous les articles </a> </div>
+                <div id="compte"> <a href=""> <img src="image\\profil.png" alt="profil"/><br>Mon ESSA </a> </div>
+                <div id="panier"> <a href=""> <img src="image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
+            
+            </header>
+            
+            
 
+            <div id="slider">
+                 <div id="slides">
+                     <figure id="slide1">
+                         <img id="img1" src="image/slider1.png" alt="1er slide"> 
+
+                     </figure>
+                     <figure id="slide2">
+                         <img id="img2" src="image/slider2.jpg" alt="2eme slide"> 
+                     </figure>
+                     <figure id="slide3">
+                         <img id="img3" src="image/slider3.jpg" alt="3eme slide"> 
+                     </figure>
+                 </div>
+            </div>
+            
+            <div id="partiedeux"> 
+                <h1> Nos rayons </h1>
+                <div id="rayon">
+                <button id="r1"><img id="ir1" src="image/r1.jpg"/><br>Produit laitier</button>
+                <button id="r2"><img id="ir2" src="image/r2.png"/><br>Boisson</button>
+                <button id="r3"><img id="ir3" src="image/r3.jpg"/><br>Condiment</button>
+                <button id="r4"><img id="ir4" src="image/r4.jpg"/><br>Dessert</button>
+                <br>
+                <button id="r5"><img id="ir5" src="image/r5.jpg"/><br>Pâtes et céréales</button>
+                <button id="r6"><img id="ir6" src="image/r6.jpg"/><br>Viandes</button>
+                <button id="r7"><img id="ir7" src="image/r7.jpg"/><br>Produits secs</button>
+                <button id="r8"><img id="ir8" src="image/r8.jpg"/><br>poissons et fruits de mer</button>
+                </div>
+            </div>
 	</body>
 </html>
