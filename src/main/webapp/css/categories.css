@@ -1,0 +1,173 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10 mars 2020, 17:54:02
+    Author     : Kency
+*/
+
+body{
+    min-height: 100%;
+    margin:0;
+    padding:0;
+}
+
+
+
+html{
+    height: 100%;
+    margin:0;
+    width:100%;
+}
+
+header{
+    width:80%;
+    margin:auto;
+    height: 75px;
+    border-bottom: 4px solid #444E4D;
+}
+
+header #logo{
+    float: left;
+    width:66%;
+    
+}
+
+header #articles,header #compte, header #panier{
+    text-align: center;
+    width:11%;
+    display: inline-block;
+    color:#434D4C;
+}
+
+#articles img{
+    width:25px;
+    height:25px;
+}
+
+div#logo img{
+    width:200px;
+}
+
+#logo,#articles,#compte,#panier{
+    cursor:pointer;
+}
+
+#compte img{
+    width:25px;
+    height:25px;
+}
+
+div#panier img{
+    width:40px;
+    height:40px;
+    margin-bottom: -6px;
+}
+
+a{  color:black;
+    text-decoration: none;
+}
+
+a:visited{
+    color:black;
+}
+
+/* ------------------------------------------------------- */
+
+
+#corps{
+    min-height: 100%;
+    min-width: 100%;
+    padding-bottom:60px;
+    margin-left:0;
+    margin-right: 0;
+    /*background:#f5f4f2;*/
+}
+
+h1{
+    padding-top:50px;
+    padding-left:200px;
+    text-align:left;
+    font-size:1.8rem;
+    font-weight:300;
+    color:#0e3368;
+    font-family:Ubuntu,sans-serif;
+}
+
+
+
+#corps #rayon button{
+    display:inline-block;
+    vertical-align: middle;
+    background:white;
+    width:250px;
+    height:250px;
+    border:2px solid #f5f4f2;
+    border-radius:15px;
+    margin:20px;
+}
+
+#corps #rayon button:hover {
+    cursor:pointer;
+    border:2px solid #abcdef;
+}
+
+#corps #rayon button img{
+   max-width:100%;
+   max-height: 50%;
+}
+#corps #rayon{
+    text-align:center;
+}
+
+#voile{
+    display: none;
+    margin-top:-5px;
+    min-width:100%;
+    min-height: 110%;
+    background:rgba(0,0,0,0.5);
+    position:absolute;
+    z-index: 1;
+}
+
+#favDialog{
+    
+    display: none;
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    left:65%;
+    background: white;
+    width:250px;
+    height: 150px;
+    font-size:16px;
+    font-variant: small-caps;
+    border-radius:0 0 20px 20px;
+    color: #0e3368;
+    font-family: Ubuntu,sans-serif;
+}
+
+#admin,#client{
+    padding-top:12%;
+    height: 44px;
+    margin:0;
+}
+
+#admin{
+    border-bottom:2px solid #0e3368;
+}
+
+#client{
+    border-radius:0 0 20px 20px;
+}
+
+#admin:hover,#client:hover{
+    cursor:pointer;
+    color:rgb(113,194,255);
+    background:#0e3368;
+}
+
+
+

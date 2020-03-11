@@ -1,0 +1,212 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10 mars 2020, 21:59:36
+    Author     : Kency
+*/
+
+
+body{
+    min-height: 100%;
+    margin:0;
+    padding:0;
+}
+
+
+
+html{
+    height: 100%;
+    margin:0;
+    width:100%;
+}
+
+header{
+    width:80%;
+    margin:auto;
+    height: 75px;
+    border-bottom: 4px solid #444E4D;
+}
+
+header #logo{
+    float: left;
+    width:66%;
+    
+}
+
+header #articles,header #compte, header #panier{
+    text-align: center;
+    width:11%;
+    display: inline-block;
+    color:#434D4C;
+}
+
+#articles img{
+    width:25px;
+    height:25px;
+}
+
+div#logo img{
+    width:200px;
+}
+
+#logo,#articles,#compte,#panier{
+    cursor:pointer;
+}
+
+#compte img{
+    width:25px;
+    height:25px;
+}
+
+div#panier img{
+    width:40px;
+    height:40px;
+    margin-bottom: -6px;
+}
+
+a{  color:black;
+    text-decoration: none;
+}
+
+a:visited{
+    color:black;
+}
+
+/* ------------------------------------------------------- */
+
+
+#corps{
+    min-height: 100%;
+    width: 80%;
+    padding-bottom:60px;
+    margin-top:100px;
+    margin-left:auto;
+    margin-right: auto;
+    background:#f5f4f2;
+    border-radius:15px;
+    text-align: center;
+}
+
+h1{
+    padding-top:20px;
+    padding-left:20px;
+    padding-bottom: 20px;
+    text-align:left;
+    font-size:1.8rem;
+    font-weight:300;
+    color:#0e3368;
+    font-family:Ubuntu,sans-serif;
+}
+
+
+#corps #profil{
+    vertical-align: middle;
+    height: 250px;
+    display: inline-block;
+    text-align:center;
+    margin-left:10px;
+    width:60%;
+    background: white;
+    box-shadow:2px 2px 4px black;
+}
+
+#corps #profil p{
+    text-align: right;
+    display:inline-block;
+    margin-right:30px;
+    margin-bottom: 25px;
+}
+
+#corps #motdepasse{
+    vertical-align: middle;
+    height: 135px;
+    padding-top:110px;
+    margin-right:10px;
+    display: inline-block;
+    width:25%;
+    background: #c4efff;
+    border:2px solid transparent;
+    box-shadow:2px 2px 4px black;
+    border-radius: 0 8px 8px 0;
+    font-weight:14px;
+    font-weight: bold;
+    
+}
+
+#corps #motdepasse:hover{
+    background: #c4e8ff;
+    border:2px solid black;
+}
+
+#corps #profil p input{
+    margin-top:10px;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+#corps #profil input[type=submit]{
+    margin-top:10px;
+    width: 70px;
+    padding: 5px;
+    background: #c4efff;
+    border-radius:5px;
+    border: 2px solid #f5f4f2;
+}
+
+#corps #profil input[type=submit]:hover{
+    cursor: pointer;
+    border: 2px solid #abcdef;
+}
+
+#voile{
+    display: none;
+    margin-top:-5px;
+    min-width:100%;
+    min-height: 89.8%;
+    background:rgba(0,0,0,0.5);
+    position:absolute;
+    z-index: 1;
+}
+
+#favDialog{
+    
+    display: none;
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    left:65%;
+    background: white;
+    width:250px;
+    height: 150px;
+    font-size:16px;
+    font-variant: small-caps;
+    border-radius:0 0 20px 20px;
+    color: #0e3368;
+    font-family: Ubuntu,sans-serif;
+}
+
+#admin,#client{
+    padding-top:12%;
+    height: 44px;
+    margin:0;
+}
+
+#admin{
+    border-bottom:2px solid #0e3368;
+}
+
+#client{
+    border-radius:0 0 20px 20px;
+}
+
+#admin:hover,#client:hover{
+    cursor:pointer;
+    color:rgb(113,194,255);
+    background:#0e3368;
+}
+
+
+

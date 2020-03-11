@@ -10,7 +10,7 @@
     <head>
         <title>ESSA</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="..\Login.css" rel="stylesheet"/>
+        <link href="..\css\Login.css" rel="stylesheet"/>
         <script src="..\js\accueil.js" type="text/javascript"></script>
     </head>
     <body>
@@ -26,9 +26,9 @@
                     <h1>Identifiez-vous<br><text>Client</text></h1>
                     
                     <label>Login: </label><br>
-                    <input type="text" name="Contact"><br>
+                    <input type="text" name="contact"><br>
                     <label>Password: </label><br>
-                    <input type="password" name="Code"><br>
+                    <input type="password" name="code"><br>
                     <input type="submit" value="Submit">
                 </form> 
  

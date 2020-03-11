@@ -186,10 +186,11 @@ h1{
 }
 
 #voile{
+    display: none;
     margin-top:-5px;
     min-width:100%;
     min-height: 177%;
-    background:transparent;
+    background:rgba(0,0,0,0.5);
     position:absolute;
     z-index: 1;
 }
