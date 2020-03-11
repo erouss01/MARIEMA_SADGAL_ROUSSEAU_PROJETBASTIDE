@@ -14,25 +14,25 @@
         <title>Affiche tous les produits</title>
     </head>
     <body>
-        <h1>Liste des produits</h1>
-	<table border='1'>
-		<tr>
-                    <th>Référence</th>
-                    <th>Nom</th>
-                    <th>Catégorie</th>
-                    <th>Prix unitaire</th>
-                </tr>
-		<%-- Pour chaque catégorie, une ligne dans la table HTML --%>
-		<c:forEach var="produit" items="${produits}">
-			<tr>
-				<td>${produit.reference}</td>
-				<%-- Le libellé ou la description peuvent contenir des caractères spéciaux HTML ! --%>
-				<td>${mvc.encoders.html(produit.nom)}</td>
-				<td>${mvc.encoders.html(produit.categorie)}</td>
-				<td>${mvc.encoders.html(produit.prixUnitaire)}</td>
-			</tr>
-		</c:forEach>
-	</table>
+        <h1>Tous nos articles</h1>
+        <%int nb=1;%>
+         <c:forEach var="produit" items="${produits}">
+       <% 
+                    String debut_nom="../image/";
+                    String fin_nom=".jpg ";
+                    String nom=debut_nom+nb+fin_nom;
+                %>
+                 <img alt=${produit.reference} src=<%out.print(nom); %>/><br>
+                    ${mvc.encoders.html(produit.nom)}<br>
+                
+                <%
+                    if(nb==4){
+                %>
+                <br>                
+                <% }
+                    nb=nb+1;
+                %>
+        </c:forEach>
 	<a href="${pageContext.request.contextPath}">Retour au menu</a>
     </body>
 </html>
