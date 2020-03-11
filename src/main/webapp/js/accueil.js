@@ -19,11 +19,3 @@ function afficher(){
         document.getElementById("voile").style.display="none";
     }
 }
-
-function fermer(){
-    if(disp==="block"){
-        document.getElementById("favDialog").style.display="none";
-        disp="none";
-        document.getElementById("voile").style.display="none";
-    }
-}

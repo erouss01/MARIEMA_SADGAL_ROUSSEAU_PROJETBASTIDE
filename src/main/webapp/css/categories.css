@@ -141,7 +141,7 @@ h1{
     left:65%;
     background: white;
     width:250px;
-    height: 150px;
+    height: 223px;
     font-size:16px;
     font-variant: small-caps;
     border-radius:0 0 20px 20px;
@@ -149,21 +149,21 @@ h1{
     font-family: Ubuntu,sans-serif;
 }
 
-#admin,#client{
+#profil,#deconnexion,#historique{
     padding-top:12%;
     height: 44px;
     margin:0;
 }
 
-#admin{
+#profil,#historique{
     border-bottom:2px solid #0e3368;
 }
 
-#client{
+#deconnexion{
     border-radius:0 0 20px 20px;
 }
 
-#admin:hover,#client:hover{
+#profil:hover,#deconnexion:hover,#historique:hover{
     cursor:pointer;
     color:rgb(113,194,255);
     background:#0e3368;

@@ -102,7 +102,7 @@ h1{
 }
 
 
-#corps #profil{
+#corps #form_profil{
     vertical-align: middle;
     height: 250px;
     display: inline-block;
@@ -113,7 +113,7 @@ h1{
     box-shadow:2px 2px 4px black;
 }
 
-#corps #profil p{
+#corps #form_profil p{
     text-align: right;
     display:inline-block;
     margin-right:30px;
@@ -141,13 +141,13 @@ h1{
     border:2px solid black;
 }
 
-#corps #profil p input{
+#corps #form_profil p input{
     margin-top:10px;
     border: none;
     border-bottom: 2px solid black;
 }
 
-#corps #profil input[type=submit]{
+#corps #form_profil input[type=submit]{
     margin-top:10px;
     width: 70px;
     padding: 5px;
@@ -156,7 +156,7 @@ h1{
     border: 2px solid #f5f4f2;
 }
 
-#corps #profil input[type=submit]:hover{
+#corps #form_profil input[type=submit]:hover{
     cursor: pointer;
     border: 2px solid #abcdef;
 }
@@ -180,7 +180,7 @@ h1{
     left:65%;
     background: white;
     width:250px;
-    height: 150px;
+    height: 298px;
     font-size:16px;
     font-variant: small-caps;
     border-radius:0 0 20px 20px;
@@ -188,21 +188,21 @@ h1{
     font-family: Ubuntu,sans-serif;
 }
 
-#admin,#client{
+#profil,#deconnexion,#categorie,#historique{
     padding-top:12%;
     height: 44px;
     margin:0;
 }
 
-#admin{
+#profil,#categorie,#historique{
     border-bottom:2px solid #0e3368;
 }
 
-#client{
+#deconnexion{
     border-radius:0 0 20px 20px;
 }
 
-#admin:hover,#client:hover{
+#profil:hover,#deconnexion:hover,#categorie:hover,#historique:hover{
     cursor:pointer;
     color:rgb(113,194,255);
     background:#0e3368;

@@ -15,7 +15,7 @@
     <body> 
         
         <header onload="afficher();"> 
-        <div id="logo"> <a href="../index.html"> <img src="..\\image\\logo1.png" alt="logo"/> </a> </div>
+        <div id="logo"> <a href="categories"> <img src="..\\image\\logo1.png" alt="logo"/> </a> </div>
         <div id="articles" ><a href=#> <img src="..\\image\\plus.png" alt="articles"/> <br>Tous les articles </a></div>
         <div id="compte" onclick="afficher();"> <img src="..\\image\\profil.png" alt="profil"/><br>
                 Mon ESSA 
@@ -25,8 +25,11 @@
         </header>
         
         <div id="favDialog">
-            <a href="Profil"><div id="admin">Accéder à mon profil </div></a>
-            <a href="..\index.html"><div id="client">Déconnexion</div></a>
+            
+            <a href="categories"><div id="categorie">Tous les rayons</div></a>
+            <a href=#><div id="profil">Accéder à mon profil </div></a>
+            <a href=""><div id="historique">Historique des commandes</div></a>
+            <a href="..\index.html"><div id="deconnexion">Déconnexion</div></a>
         </div>
 
         <div id="voile">
@@ -35,7 +38,7 @@
         
         <div id="corps">
             <h1>Profil</h1>
-            <div id="profil">
+            <div id="form_profil">
                 <form>
 
                     <p id="un">
