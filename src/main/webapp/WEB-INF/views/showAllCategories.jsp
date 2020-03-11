@@ -46,7 +46,7 @@
                     ${mvc.encoders.html(categorie.description)}
                 </button>
                 <%
-                    if(nb==4){
+                    if(nb%4==0){
                 %>
                 <br>                
                 <% }

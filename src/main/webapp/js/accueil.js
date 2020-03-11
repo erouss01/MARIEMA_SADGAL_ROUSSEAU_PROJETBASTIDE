@@ -15,7 +15,7 @@ function afficher(){
         disp="block";
     }else{
         document.getElementById("favDialog").style.display="none";
-        disp="none";
         document.getElementById("voile").style.display="none";
+        disp="none";
     }
 }

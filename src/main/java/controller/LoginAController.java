@@ -47,10 +47,10 @@ public class LoginAController {
 
            try {
                
-             if(codeClient.equals("GeorgesUntel")){
-                if(contactClient.equals("GeorgesUntel1")){
+             if(codeClient.equals("jachete")){
+                if(contactClient.equals("ESSA")){
                     models.put("categories", dao.findAll());
-         return "showAllCategories.jsp";
+         return "categorieEditor.jsp";
             }
             
        
