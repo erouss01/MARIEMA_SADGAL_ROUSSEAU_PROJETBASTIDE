@@ -12,7 +12,7 @@
     
     <header onload="afficher();"> 
         <div id="logo"> <a href="categories"> <img src="..\\image\\logo1.png" alt="logo"/> </a> </div>
-        <div id="articles" ><a href=#> <img src="..\\image\\plus.png" alt="articles"/> <br>Tous les articles </a></div>
+        <div id="articles" ><a href="produits"> <img src="..\\image\\plus.png" alt="articles"/> <br>Tous les articles </a></div>
         <div id="compte" onclick="afficher();"> <img src="..\\image\\profil.png" alt="profil"/><br>
                 Mon ESSA 
         </div> 
@@ -21,14 +21,29 @@
     </header>
     
     <div id="favDialog">
-        <a href="Profil"><div id="profil">Accéder à mon profil </div></a>
-        <a href=""><div id="historique">Historique des commandes</div></a>
-        <a href="..\index.html"><div id="deconnexion">Déconnexion</div></a>
+        <a href="Profil"><div id="profil">Accéder à mon profil <img src="..\\image\\fleche.png" alt="panier"/></div></a>
+        <a href=""><div id="historique">Historique des commandes <img src="..\\image\\fleche.png" alt="panier"/></div></a>
+        <a href="..\index.html"><div id="deconnexion">Déconnexion <img src="..\\image\\croix.png" alt="panier"/></div></a>
     </div>
 
     <div id="voile">
             .
     </div>
+    
+    <div id="slider">
+        <div id="slides">
+            <figure id="slide1">
+                <img id="img1" src="../image/slider1.png" alt="1er slide"> 
+
+            </figure>
+            <figure id="slide2">
+                <img id="img2" src="../image/slider2.jpg" alt="2eme slide"> 
+            </figure>
+            <figure id="slide3">
+                <img id="img3" src="../image/slider3.jpg" alt="3eme slide"> 
+            </figure>
+        </div>
+   </div>
 
     <div id="corps"> 
         <h1> Tous nos rayons </h1>

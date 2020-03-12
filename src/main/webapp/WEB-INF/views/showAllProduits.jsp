@@ -26,11 +26,9 @@
         </header>
         
         <div id="favDialog">
-            <a href="mvc/LoginA"><div id="admin">Accéder à mon compte <br>administrateur</div></a>
-            <a href="mvc/Login"><div id="client">Accéder à mon compte<br>client</div></a>
-            <!--<a href="Profil"><div id="profil">Accéder à mon profil </div></a>
-            <a href=""><div id="historique">Historique des commandes</div></a>
-            <a href="..\index.html"><div id="deconnexion">Déconnexion</div></a>-->
+            <a href="Profil"><div id="profil">Accéder à mon profil <img src="..\\image\\fleche.png" alt="panier"/></div></a>
+            <a href=""><div id="historique">Historique des commandes <img src="..\\image\\fleche.png" alt="panier"/></div></a>
+            <a href="..\index.html"><div id="deconnexion">Déconnexion <img src="..\\image\\croix.png" alt="panier"/></div></a>
         </div>
 
         <div id="voile">

@@ -15,7 +15,7 @@
         
         <header> 
             <div id="retour"><a href="Profil"><img src="..\\image\\retour.png" alt=retour"/></a></div>
-            <div id="logo"> <a href="..\index.html"> <img src="..\\image\\logo2.png" alt="logo"/> </a> </div>
+            <div id="logo"><img src="..\\image\\logo2.png" alt="logo"/></div>
          </header>
         
         <div id="corps">

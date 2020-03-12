@@ -202,37 +202,41 @@ h4{
 #favDialog{
     
     display: none;
-    text-align: center;
+    text-align: left;
     z-index: 2;
     position: absolute;
-    left:60%;
+    left:65%;
     background: white;
-    width:320px;
-    height: 250px;
+    width:350px;
     font-size:16px;
-    font-variant: small-caps;
     border-radius:0 0 20px 20px;
     color: #0e3368;
     font-family: Ubuntu,sans-serif;
 }
 
-#admin,#client{
-    padding-top:15%;
-    height: 77px;
-    margin:0;
+#profil,#deconnexion,#historique{
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:20px;
+    width:290px;
+    height: 20px;
+    margin:auto;
 }
 
-#admin{
-    border-bottom:2px solid #0e3368;
+#profil,#historique{
+    border-bottom:1px solid #0e3368;
 }
 
-#client{
+#deconnexion{
     border-radius:0 0 20px 20px;
 }
 
-#admin:hover,#client:hover{
+#profil:hover,#deconnexion:hover,#historique:hover{
     cursor:pointer;
     color:rgb(113,194,255);
-    background:#0e3368;
 }
 
+#favDialog img{
+    float:right;
+    width:15px;
+}

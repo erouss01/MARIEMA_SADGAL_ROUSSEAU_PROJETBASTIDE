@@ -75,6 +75,67 @@ a:visited{
 }
 
 /* ------------------------------------------------------- */
+#slider {
+    background-color:white;
+    position: relative;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:20px;
+    overflow: hidden;
+    height: 400px;
+    border:1px solid black;
+    box-shadow:8px 10px 10px #888888;
+}
+
+#slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    max-height: 100%;
+    animation-name: slide;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation: slide 20s infinite ease-in-out forwards;
+}
+
+#slides figure {
+    display: inline-block;
+    width: 100vw;
+    max-height: 100%;
+    margin: 0;
+}
+
+#slides figure img {
+    position: relative;
+    max-width: 1335px;
+    transform: translateY(-50%);
+}
+
+#img1,#img2{
+    top:50%;
+}
+
+#img3{
+    top:40%;
+}
+
+
+
+@keyframes slide {
+    0%, 20%, 100% {
+        left: 0; /*1ère image*/
+    }
+    35%, 50% {
+        left: -100vw; /*2ème image*/
+    }
+    70%, 95% {
+        left: -200vw; /*3ème image*/
+    }
+}
 
 
 #corps{
@@ -135,28 +196,29 @@ h1{
 #favDialog{
     
     display: none;
-    text-align: center;
+    text-align: left;
     z-index: 2;
     position: absolute;
     left:65%;
     background: white;
-    width:250px;
-    height: 223px;
+    width:350px;
     font-size:16px;
-    font-variant: small-caps;
     border-radius:0 0 20px 20px;
     color: #0e3368;
     font-family: Ubuntu,sans-serif;
 }
 
 #profil,#deconnexion,#historique{
-    padding-top:12%;
-    height: 44px;
-    margin:0;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:20px;
+    width:290px;
+    height: 20px;
+    margin:auto;
 }
 
 #profil,#historique{
-    border-bottom:2px solid #0e3368;
+    border-bottom:1px solid #0e3368;
 }
 
 #deconnexion{
@@ -166,8 +228,9 @@ h1{
 #profil:hover,#deconnexion:hover,#historique:hover{
     cursor:pointer;
     color:rgb(113,194,255);
-    background:#0e3368;
 }
 
-
-
+#favDialog img{
+    float:right;
+    width:15px;
+}
