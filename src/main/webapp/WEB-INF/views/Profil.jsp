@@ -35,31 +35,36 @@
         </div>
         
         <div id="corps">
-            <h1>Profil</h1>
-            <div id="form_profil">
-                <form>
+            <h1>Mes coordonnées</h1>
+            
+            <form method="post">
+                <p>
+                    <label>Nom</label> <br> <input type="text" name="Contact"><br>
+                    <label>Fonction</label> <br> <input type="text" name="Fonction"><br>
+                    <label>Société</label> <br> <input type="text" name="Societe"><br>
+                    <label>Téléphone</label> <br><input type="text" name="Telephone"><br>
+                    <label>Fax</label> <br> <input type="text" name="Fax"><br>
+                </p>
+                <br>
+                <input type="submit" value="VALIDER">
+            </form>
 
-                    <p id="un">
-                        Nom: <input type="text" name="Contact"><br>
-                        Fonction: <input type="text" name="Fonction"><br>
-                        Société: <input type="text" name="Societe"><br>
-                        Adresse: <input type="text" name="Adresse"><br>
-                        Code Postal: <input type="text" name="Code_Postal"><br>
-                    </p>
-                    <p id="deux">
-                        Ville: <input type="text" name="Ville"><br>
-                        Région: <input type="text" name="Region"><br>
-                        Pays: <input type="text" name="Pays"><br>
-                        Téléphone: <input type="text" name="Telephone"><br>
-                        Fax: <input type="text" name="Fax"><br>
-                    </p>
-                    <br>
-                    <input type="submit" value="Valider">
-                </form>
-            </div>
+            <h1>Mon adresse</h1>
+            <form method="post">
+                <p>
+                    <label>Adresse</label> <br> <input type="text" name="Adresse"><br>
+                    <label>Code Postal</label> <br> <input type="text" name="Code_Postal"><br>
+                    <label>Ville</label> <br> <input type="text" name="Ville"><br>
+                    <label>Région</label> <br> <input type="text" name="Region"><br>
+                    <label>Pays</label> <br> <input type="text" name="Pays"><br>
+                </p>
+                <br>
+                <input type="submit" value="VALIDER">
+            </form>
+            
             <a href="Password">
                 <div id="motdepasse">
-                    CHANGER MOT DE PASSE
+                    <img src="..\\image\\modifier.png" alt="panier"/>
                 </div>
             </a>
         </div>

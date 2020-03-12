@@ -82,10 +82,9 @@ a:visited{
     min-height: 100%;
     width: 80%;
     padding-bottom:60px;
-    margin-top:100px;
+    margin-top:50px;
     margin-left:auto;
     margin-right: auto;
-    background:#f5f4f2;
     border-radius:15px;
     text-align: center;
 }
@@ -99,66 +98,62 @@ h1{
     font-weight:300;
     color:#0e3368;
     font-family:Ubuntu,sans-serif;
+    margin-top:40px;
 }
 
 
-#corps #form_profil{
+#corps form{
+    text-align:left;
     vertical-align: middle;
-    height: 250px;
     display: inline-block;
-    text-align:center;
     margin-left:10px;
-    width:60%;
-    background: white;
-    box-shadow:2px 2px 4px black;
-}
-
-#corps #form_profil p{
-    text-align: right;
-    display:inline-block;
-    margin-right:30px;
+    width:90%;
     margin-bottom: 25px;
-}
-
-#corps #motdepasse{
-    vertical-align: middle;
-    height: 135px;
-    padding-top:110px;
-    margin-right:10px;
-    display: inline-block;
-    width:25%;
-    background: #c4efff;
-    border:2px solid transparent;
-    box-shadow:2px 2px 4px black;
-    border-radius: 0 8px 8px 0;
-    font-weight:14px;
-    font-weight: bold;
+    border-bottom:1px solid black;
     
 }
 
-#corps #motdepasse:hover{
-    background: #c4e8ff;
-    border:2px solid black;
+#corps form p{
+    text-align: left;
+    margin-left:30%;
 }
 
-#corps #form_profil p input{
-    margin-top:10px;
-    border: none;
-    border-bottom: 2px solid black;
+
+#corps #motdepasse{
+    background:none;
+    border:none;
+    margin-top:20px;
+    
 }
 
-#corps #form_profil input[type=submit]{
-    margin-top:10px;
-    width: 70px;
-    padding: 5px;
-    background: #c4efff;
-    border-radius:5px;
-    border: 2px solid #f5f4f2;
+#corps #motdepasse img{
+    width:220px;
 }
 
-#corps #form_profil input[type=submit]:hover{
+
+
+#corps form input[type=text]{
+    padding-left:5px;
+    width:410px;
+    margin-bottom:20px;
+    height:25px;
+    border: 1px solid #999;
+}
+
+#corps form input[type=submit]{
+    font-family:"Dosis",sans-serif;
+    color:white;
+    margin-left:60%;
+    margin-bottom:40px;
+    width: 80px;
+    height: 40px;
+    background: #0e3368;
+    border:none;
+}
+
+#corps form input[type=submit]:hover{
     cursor: pointer;
-    border: 2px solid #abcdef;
+    background: #0e3698;
 }
 
 #voile{
