@@ -19,3 +19,32 @@ function afficher(){
         disp="none";
     }
 }
+
+function ajouter_panier(p){
+    p.style.display="none";
+    var aff=p.value;
+    document.getElementById(aff).style.display="inline-block";
+}
+
+function add(c){
+    var aff=c.value;
+    var n=document.getElementById(aff).children[1].innerText;
+    n=parseInt(n,10)+1;
+    document.getElementById(aff).children[1].innerText=n;
+}
+
+function rem(c,aff){
+    var aff=c.value;
+    var n=document.getElementById(aff).children[1].innerText;
+    if(n>"0"){
+        n=parseInt(n,10)-1;
+        document.getElementById(aff).children[1].innerText=n;
+    }
+    if(n=="0"){
+        document.getElementById(aff).style.display="none";
+        document.getElementById(aff).previousElementSibling.style.display="block";
+        n="1";
+        document.getElementById(aff).children[1].innerText=n;
+        
+    }
+}

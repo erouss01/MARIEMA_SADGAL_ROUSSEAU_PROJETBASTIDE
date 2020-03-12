@@ -20,45 +20,45 @@
 
     </header>
     
-        <div id="favDialog">
-            <a href="Profil"><div id="profil">Accéder à mon profil </div></a>
-            <a href=""><div id="historique">Historique des commandes</div></a>
-            <a href="..\index.html"><div id="deconnexion">Déconnexion</div></a>
-        </div>
+    <div id="favDialog">
+        <a href="Profil"><div id="profil">Accéder à mon profil </div></a>
+        <a href=""><div id="historique">Historique des commandes</div></a>
+        <a href="..\index.html"><div id="deconnexion">Déconnexion</div></a>
+    </div>
 
-        <div id="voile">
-                .
+    <div id="voile">
+            .
+    </div>
+
+    <div id="corps"> 
+        <h1> Tous nos rayons </h1>
+        <div id="rayon">
+
+        <%int nb=1;%>
+        <c:forEach var="categorie" items="${categories}">
+            <% 
+                String debut_nom="../image/r";
+                String fin_nom=".jpg ";
+                String nom=debut_nom+nb+fin_nom;
+            %>
+            <button><img alt=${categorie.code} src=<%out.print(nom); %>/><br>
+                ${mvc.encoders.html(categorie.libelle)}<br>
+                ${mvc.encoders.html(categorie.description)}
+            </button>
+            <%
+                if(nb%4==0){
+            %>
+            <br>                
+            <% }
+                nb=nb+1;
+            %>
+        </c:forEach>
+
         </div>
-    
-        <div id="corps"> 
-            <h1> Tous nos rayons </h1>
-            <div id="rayon">
-                
-            <%int nb=1;%>
-            <c:forEach var="categorie" items="${categories}">
-                <% 
-                    String debut_nom="../image/r";
-                    String fin_nom=".jpg ";
-                    String nom=debut_nom+nb+fin_nom;
-                %>
-                <button><img alt=${categorie.code} src=<%out.print(nom); %>/><br>
-                    ${mvc.encoders.html(categorie.libelle)}<br>
-                    ${mvc.encoders.html(categorie.description)}
-                </button>
-                <%
-                    if(nb%4==0){
-                %>
-                <br>                
-                <% }
-                    nb=nb+1;
-                %>
-            </c:forEach>
-            
-            </div>
-            <%--<a href="${pageContext.request.contextPath}">Retour au menu</a>--%>
-        </div>
-        
-        <script src="../js/accueil.js" type="text/javascript"></script>
+        <%--<a href="${pageContext.request.contextPath}">Retour au menu</a>--%>
+    </div>
+
+    <script src="../js/accueil.js" type="text/javascript"></script>
 </body>
 
 </html>
