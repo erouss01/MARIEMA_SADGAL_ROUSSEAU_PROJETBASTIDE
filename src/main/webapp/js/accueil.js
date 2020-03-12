@@ -48,3 +48,11 @@ function rem(c,aff){
         
     }
 }
+
+
+function tri(c){
+    document.getElementById('tri').children[0].style.background="none";
+    document.getElementById('tri').children[1].style.background="none";
+    document.getElementById('tri').children[2].style.background="none";
+    c.style.background="#abcdef";
+}

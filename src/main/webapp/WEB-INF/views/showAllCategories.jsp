@@ -56,10 +56,10 @@
                 String fin_nom=".jpg ";
                 String nom=debut_nom+nb+fin_nom;
             %>
-            <button><img alt=${categorie.code} src=<%out.print(nom); %>/><br>
+            <div><br><img alt=${categorie.code} src=<%out.print(nom); %>/><br><br><br>
                 ${mvc.encoders.html(categorie.libelle)}<br>
                 ${mvc.encoders.html(categorie.description)}
-            </button>
+            </div>
             <%
                 if(nb%4==0){
             %>

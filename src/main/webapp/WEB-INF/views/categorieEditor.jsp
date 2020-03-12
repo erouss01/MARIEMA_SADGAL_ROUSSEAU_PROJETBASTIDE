@@ -18,7 +18,7 @@
               callback: function() {
 
                 // Création de la visualisation "PieChart, LineChart,ColumnChart,AreaChart,ScatterChart, BarChart"
-                var chart = new google.visualization.AreaChart(document.getElementById('graphique'));
+                var chart = new google.visualization.PieChart(document.getElementById('graphique'));
 
                 // Formatage des options du graphique
                 var options = {
@@ -88,9 +88,9 @@
                     <h1>Visualisation des chiffres d'affaires </h1>
                     <h2>Trier par </h2><br>
                     <div id="tri">
-                        <button>catégorie</button>
-                        <button>pays</button>
-                        <button>client</button>
+                        <button onclick="tri(this);">catégorie</button>
+                        <button onclick="tri(this);">pays</button>
+                        <button onclick="tri(this);">client</button>
                     </div>
                     
                     <div id="ligne">
@@ -121,5 +121,7 @@
                     </div>
                 </div>
             </div>
+            
+            <script src="../js/accueil.js" type="text/javascript"></script>
 	</body>
 </html>
