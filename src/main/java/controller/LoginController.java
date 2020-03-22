@@ -23,6 +23,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import session.ProfilSession;
 
 @Controller
 @Path("Login")
@@ -35,6 +36,8 @@ public class LoginController {
     CategorieFacade dao;
     @Inject
     Models models; // Pour transmettre les infos à la vue
+    @Inject
+    private ProfilSession profilsession;
 
     @GET
     public void show() {
@@ -49,9 +52,10 @@ public class LoginController {
         try {
             Client c = facade.find(codeClient);
             if(c.getContact().equals(contactClient)){
-            BonDeCommande bon= new BonDeCommande();
-            models.put("categories", dao.findAll());
-         return "showAllCategories.jsp";
+                BonDeCommande bon= new BonDeCommande();
+                models.put("categories", dao.findAll());
+                profilsession.login(codeClient);
+                return "showAllCategories.jsp";
             }else{
                  models.put("databaseErrorMessage", "Le pseudo/ mot de passe est incorrect");
             }

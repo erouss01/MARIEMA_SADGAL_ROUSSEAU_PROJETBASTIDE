@@ -33,6 +33,16 @@
         <div id="voile">
                 .
         </div>
+        <text class="info">${codeclient.contact}</text>
+        <text class="info">${codeclient.fonction}</text>
+        <text class="info">${codeclient.societe}</text>
+        <text class="info">${codeclient.telephone}</text>
+        <text class="info">${codeclient.fax}</text>
+        <text class="info">${codeclient.adresse}</text>
+        <text class="info">${codeclient.codePostal}</text>
+        <text class="info">${codeclient.ville}</text>
+        <text class="info">${codeclient.region}</text>
+        <text class="info">${codeclient.pays}</text>
         
         <div id="corps">
             <h1>Mes coordonnées</h1>
@@ -50,6 +60,7 @@
             </form>
 
             <h1>Mon adresse</h1>
+	
             <form method="post">
                 <p>
                     <label>Adresse</label> <br> <input type="text" name="Adresse"><br>
@@ -69,6 +80,6 @@
             </a>
         </div>
         
-        <script src="../js/accueil.js" type="text/javascript"></script>
+        <script src="../js/Profil.js" type="text/javascript"></script>
     </body>
 </html>

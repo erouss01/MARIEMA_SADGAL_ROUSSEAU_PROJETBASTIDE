@@ -10,13 +10,14 @@ package controller;
  * @author erouss01
  */
 
-import comptoirs.model.dao.CategorieFacade;
+import comptoirs.model.dao.ClientFacade;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import session.ProfilSession;
 
 
 
@@ -26,14 +27,16 @@ import javax.ws.rs.Path;
 
 public class ProfilController {
     @Inject // Le DAO généré par netBeans
-	CategorieFacade dao;
+	ClientFacade dao;
 
 	@Inject
 	Models models;
+        @Inject
+        private ProfilSession profilsession;
 
 	@GET
 	public void show() {
-		models.put("categories", dao.findAll());
+		models.put("codeclient", dao.find(profilsession.getCodeClient()));
 	}
 }
 

@@ -208,3 +208,7 @@ h1{
     width:15px;
 }
 
+.info{
+    visibility:hidden;
+    font-size:0px;
+}
