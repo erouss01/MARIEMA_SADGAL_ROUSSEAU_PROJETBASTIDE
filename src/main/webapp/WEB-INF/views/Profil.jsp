@@ -57,15 +57,14 @@
                 </p>
                 <br>
                 <input type="submit" value="VALIDER">
-            </form>
+           
 
-            <h1>Mon adresse</h1>
+            <h1 id="titredeux">Mon adresse</h1>
 	
-            <form method="post">
                 <p>
                     <label>Adresse</label> <br> <input type="text" name="Adresse"><br>
                     <label>Code Postal</label> <br> <input type="text" name="Code_Postal"><br>
-                    <label>Ville</label> <br> <input type="text" name="Ville"><br>
+                    <label>Ville</label> <br> <input type="text"<jsp:useBean id="b1" scope="page" class="controller.ProfilController" /> name="Ville"><br>
                     <label>Région</label> <br> <input type="text" name="Region"><br>
                     <label>Pays</label> <br> <input type="text" name="Pays"><br>
                 </p>

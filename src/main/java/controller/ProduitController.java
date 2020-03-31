@@ -5,7 +5,11 @@ import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
+import javax.validation.executable.ExecutableType;
+import javax.validation.executable.ValidateOnExecution;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
 
@@ -22,6 +26,13 @@ public class ProduitController {
 
 	@GET
 	public void show() {
+		models.put("produits", dao.findAll());
+	}
+        
+        @POST
+        @ValidateOnExecution(type = ExecutableType.ALL)
+        public void panier(@FormParam("code") String codeClient, int id) {
+            
 		models.put("produits", dao.findAll());
 	}
 }

@@ -27,11 +27,11 @@ function information(){
     document.forms[0].elements["Societe"].value=document.getElementsByClassName("info")[2].textContent;
     document.forms[0].elements["Telephone"].value=document.getElementsByClassName("info")[3].textContent;
     document.forms[0].elements["Fax"].value=document.getElementsByClassName("info")[4].textContent;
-    document.forms[1].elements["Adresse"].value=document.getElementsByClassName("info")[5].textContent;
-    document.forms[1].elements["Code_Postal"].value=document.getElementsByClassName("info")[6].textContent;
-    document.forms[1].elements["Ville"].value=document.getElementsByClassName("info")[7].textContent;
-    document.forms[1].elements["Region"].value=document.getElementsByClassName("info")[8].textContent;
-    document.forms[1].elements["Pays"].value=document.getElementsByClassName("info")[9].textContent;
+    document.forms[0].elements["Adresse"].value=document.getElementsByClassName("info")[5].textContent;
+    document.forms[0].elements["Code_Postal"].value=document.getElementsByClassName("info")[6].textContent;
+    document.forms[0].elements["Ville"].value=document.getElementsByClassName("info")[7].textContent;
+    document.forms[0].elements["Region"].value=document.getElementsByClassName("info")[8].textContent;
+    document.forms[0].elements["Pays"].value=document.getElementsByClassName("info")[9].textContent;
 }
 
 function ajouter_panier(p){

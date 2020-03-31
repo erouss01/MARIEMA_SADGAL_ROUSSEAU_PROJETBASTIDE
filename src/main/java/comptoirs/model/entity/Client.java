@@ -12,6 +12,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -38,7 +40,11 @@ import javax.xml.bind.annotation.XmlTransient;
 	@NamedQuery(name = "Client.findByCodePostal", query = "SELECT c FROM Client c WHERE c.codePostal = :codePostal"),
 	@NamedQuery(name = "Client.findByPays", query = "SELECT c FROM Client c WHERE c.pays = :pays"),
 	@NamedQuery(name = "Client.findByTelephone", query = "SELECT c FROM Client c WHERE c.telephone = :telephone"),
-	@NamedQuery(name = "Client.findByFax", query = "SELECT c FROM Client c WHERE c.fax = :fax")})
+	@NamedQuery(name = "Client.findByFax", query = "SELECT c FROM Client c WHERE c.fax = :fax"),
+       
+
+})
+
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;

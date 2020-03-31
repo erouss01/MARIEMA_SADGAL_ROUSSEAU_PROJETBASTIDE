@@ -33,7 +33,7 @@ header{
 header #logo{
     float: left;
     width:66%;
-    
+
 }
 
 header #articles,header #compte, header #panier{
@@ -110,7 +110,7 @@ h1{
     width:90%;
     margin-bottom: 25px;
     border-bottom:1px solid black;
-    
+
 }
 
 #corps form p{
@@ -123,7 +123,7 @@ h1{
     background:none;
     border:none;
     margin-top:20px;
-    
+
 }
 
 #corps #motdepasse img{
@@ -167,7 +167,7 @@ h1{
 }
 
 #favDialog{
-    
+
     display: none;
     text-align: left;
     z-index: 2;
@@ -211,4 +211,10 @@ h1{
 .info{
     visibility:hidden;
     font-size:0px;
+}
+
+#titredeux{
+    margin-top:0;
+    border-top:1px solid black;
+    padding-top:80px;
 }

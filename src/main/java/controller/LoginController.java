@@ -52,7 +52,6 @@ public class LoginController {
         try {
             Client c = facade.find(codeClient);
             if(c.getContact().equals(contactClient)){
-                BonDeCommande bon= new BonDeCommande();
                 models.put("categories", dao.findAll());
                 profilsession.login(codeClient);
                 return "showAllCategories.jsp";

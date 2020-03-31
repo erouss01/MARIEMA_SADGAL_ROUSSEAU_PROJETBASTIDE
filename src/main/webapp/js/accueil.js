@@ -56,3 +56,16 @@ function tri(c){
     document.getElementById('tri').children[2].style.background="none";
     c.style.background="#abcdef";
 }
+
+   
+    (function (global) {
+    document.getElementById("article").addEventListener("click", function () {
+        global.localStorage.setItem("SharedData", document.getElementById("nom").innerHTML);
+       window.location='showAllProduits.jsp'
+    }, false);
+}(window));
+
+(function (global) {
+    document.getElementById("produitP").innerHTML = global.localStorage.getItem("mySharedData");
+
+}(window));
