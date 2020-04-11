@@ -20,13 +20,19 @@
         
         <div id="corps">
             <div id="form">
-                <form  method="post">
+               
+                <form  method="post" autocomplete="off">
                     <h1>Changer de mot de passe</h1>
+                     
                     Mot de passe actuel: <input type="password" name="Code1"><br>
                     Nouveau mot de passe: <input type="password" name="Code2"><br>
                     Confirmer mot de passe: <input type="password" name="Code3"><br>
+                    <c:if test="${not empty databaseErrorMessage}">
+			<span style="color: red;">${databaseErrorMessage}</span>
+                     </c:if> 
                     <input type="submit" value="Valider">
                 </form>
+                
             </div>
         </div>
     </body>

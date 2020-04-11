@@ -44,7 +44,7 @@ public class ProfilController {
 
     @POST
     @ValidateOnExecution(type = ExecutableType.ALL)
-    public void ChangementDonnees(
+    public String ChangementDonnees(
             @FormParam("Contact") String contactClient, @FormParam("Fonction") String fonctionClient,
             @FormParam("Societe") String societeClient, @FormParam("Telephone") String telephoneClient,
             @FormParam("Fax") String faxClient, @FormParam("Adresse") String adresseClient,
@@ -65,6 +65,7 @@ public class ProfilController {
         
 dao.edit(c);
         models.put("codeclient", dao.find(profilsession.getCodeClient()));
+        return null;
 
     }
 }
