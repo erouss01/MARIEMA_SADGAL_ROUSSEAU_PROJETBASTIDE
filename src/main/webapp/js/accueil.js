@@ -20,31 +20,44 @@ function afficher(){
     }
 }
 
+
 function ajouter_panier(p){
-    p.style.display="none";
-    var aff=p.value;
-    document.getElementById(aff).style.display="inline-block";
+    var ref=p.value;
+    document.getElementById("articlepanier").value=ref;
+    
+    setTimeout(envoyer_panier,500);
+}
+
+function envoyer_panier(){
+    document.getElementById("ajoutPanier").submit();
 }
 
 function add(c){
-    var aff=c.value;
-    var n=document.getElementById(aff).children[1].innerText;
+    var num=c.value;
+    var n=document.getElementById(num).children[1].innerText;
     n=parseInt(n,10)+1;
-    document.getElementById(aff).children[1].innerText=n;
+    document.getElementById(num).children[1].innerText=n;
+    
+    var h3="h3#h"+num;
+    var nom=document.querySelector(h3).textContent;
+    document.getElementById("articlepanier").value=num+","+nom+","+n;
 }
 
 function rem(c,aff){
-    var aff=c.value;
-    var n=document.getElementById(aff).children[1].innerText;
+    var num=c.value;
+    var n=document.getElementById(num).children[1].innerText;
     if(n>"0"){
         n=parseInt(n,10)-1;
-        document.getElementById(aff).children[1].innerText=n;
+        document.getElementById(num).children[1].innerText=n;
+        var h3="h3#h"+num;
+        var nom=document.querySelector(h3).textContent;
+        document.getElementById("articlepanier").value=num+","+nom+","+n;
     }
     if(n=="0"){
-        document.getElementById(aff).style.display="none";
-        document.getElementById(aff).previousElementSibling.style.display="block";
+        document.getElementById(num).style.display="none";
+        document.getElementById(num).previousElementSibling.style.display="block";
         n="1";
-        document.getElementById(aff).children[1].innerText=n;
+        document.getElementById(num).children[1].innerText=n;
         
     }
 }

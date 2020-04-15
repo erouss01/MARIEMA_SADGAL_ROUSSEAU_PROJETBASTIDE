@@ -1,0 +1,270 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7 avr. 2020, 16:25:32
+    Author     : Kency
+*/
+
+body{
+    min-height: 100%;
+    margin:0;
+    padding:0;
+}
+
+
+
+html{
+    min-height: 100%;
+    margin:0;
+    width:100%;
+}
+
+header{
+    text-align: center;
+    width:100%;
+    margin:auto;
+    height: 90px;
+}
+
+
+#retour{
+    position:absolute;
+    padding-left:15px;
+    margin-top:35px;
+    float:left;
+}
+#retour img{
+    width:150px;
+}
+
+div#logo img{
+    margin-top:10px;
+    width:150px;
+}
+
+a{  color:black;
+    text-decoration: none;
+}
+
+a:visited{
+    color:black;
+}
+
+#form{
+    padding-top:20px;
+    padding-bottom:40px;
+    width:350px;
+    background: white;
+    margin-right: auto;
+    margin-left:auto;
+    border-radius: 30px;
+    text-align: center;
+    margin-bottom: 135px;
+}
+
+#corps{
+    color:#0e3368;
+    padding-top:80px;
+    min-height: 100%;
+    min-width: 100%;
+    padding-bottom:60px;
+    margin:0;
+    background:#f5f4f2;
+}
+
+h1{
+    margin-left: 95px;
+    font-size:2.5em;
+    margin-bottom: 40px;
+}
+
+text{
+    font-size:15px;
+}
+
+#form label{
+    float:left;
+    margin-left:50px;
+}
+
+
+#form input[type=submit]{
+    margin-top:20px;
+    margin-bottom: 20px;
+    width:250px;
+    height: 40px;
+    border-radius:15px;
+    color:white;
+    background: rgba(0,32,62,0.5);
+    font-size:14px;
+    border:3px solid transparent;
+}
+
+#form input[type=submit]:hover{
+    cursor:pointer;
+    font-size:15px;
+}
+
+
+#liste{
+    display: inline-block;
+    margin-left:50px;
+    padding-top:10px;
+    margin-right:50px;
+    padding-bottom:10px;
+    width:60%;
+    background:white;
+    border-radius:5px;
+}
+
+.blockarticle{
+    border:0.08rem solid #e5e5e5;
+    margin:20px;
+    margin-top:25px;
+    padding:15px;
+    height:170px;
+    border-radius:5px;
+}
+
+.imgproduit{
+    max-width:150px;
+    max-height:150px;
+}
+
+#liste .blockarticle div.divimg{
+    width:150px;
+    text-align: center;
+}
+
+
+#liste .blockarticle div.divproduit,#liste .blockarticle div.divqte,#liste .blockarticle div.divimg{
+    vertical-align: middle;
+    display: inline-block;
+    height:160px;
+}
+
+#liste .blockarticle div.divproduit{
+    padding-top:30px;
+    height: 130px;
+    color:#575757;
+    font-size: 0.75rem;
+    font-family:Open Sans,Arial,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+    max-width:35%;
+}
+
+h3{
+    font-size: 1rem;
+    font-family:Ubuntu,Verdana,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Cantarell,Helvetica Neue,sans-serif;
+    margin:0;
+    padding:0;
+    font-weight: 400;
+    color:#0e3368;
+}
+
+#liste .blockarticle div.divqte{
+    float: right;
+    width:35%;
+}
+
+.imgpoubelle{
+    width: 30px;
+    float: right;
+}
+
+.imgpoubelle:hover{
+    cursor:pointer;
+    width: 30.5px;
+}
+
+#liste .blockarticle div.divqte .divprix{
+    margin-top:60px;
+    margin-right:30px;
+    margin-left:30px;
+}
+
+#liste .blockarticle div.divqte .divprix div,#liste .blockarticle div.divqte .divprix text{
+    display: inline-block;
+    font-weight:700;
+    font-size:1.25rem;
+}
+
+#liste .blockarticle div.divqte .divprix text{
+    margin-top: 5px;
+    font-size:1.8rem;
+}
+
+#liste .blockarticle div.divqte .divprix div.divblocknb{
+    float: right;
+    border:0.08rem solid #e5e5e5;
+    height: 2.5rem;
+    min-width: 6.4rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#liste .blockarticle div.divqte .divprix div.divblocknb button{
+    background: none;
+    border: none;
+    height: 100%;
+}
+
+#liste .blockarticle div.divqte .divprix div.divblocknb button:hover{
+    cursor:pointer;
+}
+
+#liste .blockarticle div.divqte .divprix div.divblocknb div{
+    text-align: center;
+    height: 100%;
+}
+
+#recap{
+    font-family: Ubuntu,Verdana,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Cantarell,Helvetica Neue,sans-serif;
+    padding:20px;
+    display: inline-block;
+    position:fixed;
+    width:28%;
+    margin-right: 50px;
+    color:#0e3368;
+    font-weight: 700;
+    font-size: 1.25rem;
+    background: white;
+    border-radius:5px;
+}
+
+#recap text{
+    font-size: 1.25rem;
+    float:right;
+}
+
+#recap p{
+    color:#575757;
+    font-weight: 400;
+    font-size:1rem;
+}
+
+#recap p text{
+    font-size:1rem;
+}
+
+#recap #valider{
+    margin-top:30px;
+    text-align: center;
+}
+
+#recap #valider button{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #0e3368;
+    color:white;
+    font-weight: 700;
+}
+
+#recap #valider button:hover{
+    cursor:pointer;
+    background: #0e3378;
+}

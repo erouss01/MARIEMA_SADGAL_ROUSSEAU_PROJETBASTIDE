@@ -16,7 +16,7 @@
         <div id="compte" onclick="afficher();"> <img src="..\\image\\profil.png" alt="profil"/><br>
                 Mon ESSA 
         </div> 
-        <div id="panier"> <a href=""> <img src="..\\image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
+        <div id="panier"> <a href="Panier"> <img src="..\\image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
 
     </header>
     

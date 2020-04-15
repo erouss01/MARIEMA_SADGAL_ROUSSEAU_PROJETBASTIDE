@@ -22,7 +22,7 @@
             <div id="compte" onclick="afficher();"> <img src="..\\image\\profil.png" alt="profil"/><br>
                     Mon ESSA 
             </div> 
-            <div id="panier"> <a href=""> <img src="..\\image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
+            <div id="panier"> <a href="Panier"> <img src="..\\image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
         </header>
         
         <div id="favDialog">
@@ -38,28 +38,49 @@
         
         <div id="corps">
             <h1>Tous nos articles</h1>
+            <c:if test="${not empty databaseErrorMessage}">
+			<span style="color: red;">${databaseErrorMessage}</span>
+            </c:if>
             <div id="rayon">
+                <form id="ajoutPanier" method="post">
+                    <input id="articlepanier" name=article type="text"/>
+                </form>
+                <%int nb=1;
+                  int in=0;
+                %>
                 
-                <%int nb=1;%>
                  <c:forEach var="produit" items="${produits}">
+                    <% in=0; %>
                     <% 
                         String debut_nom="../image/";
                         String fin_nom=".jpg ";
                         String nom=debut_nom+nb+fin_nom;
                     %>
                     <div>
-                        <h3>${mvc.encoders.html(produit.nom)}</h3>
+                        <h3 id=h${produit.reference}>${mvc.encoders.html(produit.nom)}</h3>
                         <br>
                         <img class="produit" alt=${produit.reference} src=<%out.print(nom); %>/><br>
                         
-                        <h4>${mvc.encoders.html(produit.prixUnitaire)}€</h4>
+                        <h4 id=h${produit.reference}>${mvc.encoders.html(produit.prixUnitaire)}€</h4>
+                        <c:if test="${not empty inpanier}">
+                            <c:forEach var="prod" items="${inpanier}">
+                                <c:if test="${produit.nom==prod}">
+                                    <% in=1; %>
+                                </c:if>
+                            </c:forEach>
+                        </c:if>
+                        
+                        <%
+                          if(in==0){  
+                        %>
                         <button class="addpanier" value=${produit.reference} onclick="ajouter_panier(this);"><img src="../image/caddie.jpg"/></button>
-                        <div class="modifpanier" id=${produit.reference}>
-                            <button onclick="add(this);" value=${produit.reference}> + </button>
-                            <button id="disabled">1</button>
-                            <button onclick="rem(this,${produit.reference});" value=${produit.reference}> - </button>
-                            
-                        </div>
+                        <%
+                            }else{  
+                        %>
+                        <button class="addpanier" value=${produit.reference} onclick="ajouter_panier(this); " disabled="true"><img src="../image/caddieok.jpg" title="Pour supprimer cette article rendez-vous dans votre panier!"/></button>
+                        <%
+                            }  
+                        %>
                     </div>
 
                     <%
