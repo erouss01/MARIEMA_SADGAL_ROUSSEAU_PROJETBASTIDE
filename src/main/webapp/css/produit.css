@@ -246,3 +246,7 @@ button#disabled:hover{
     background:blue;
 }
 
+input[type=text]{
+    display: none;
+    visibility: hidden;
+}

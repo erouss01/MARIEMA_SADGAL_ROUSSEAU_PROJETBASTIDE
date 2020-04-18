@@ -6,10 +6,12 @@
 package comptoirs.model.dao;
 
 import comptoirs.model.entity.Panier;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -30,7 +32,7 @@ public class PanierFacade extends AbstractFacade<Panier> {
 	}
         
         public List<Panier> panierClient(String codeClient){
-            return em.createQuery("select p.numero,p.ref,p.produit,p.description,p.qte,p.prixT from Panier p where p.code=:code",Panier.class).setParameter("code", codeClient).getResultList();
+            return em.createQuery("select p.numero,p.ref,p.produit,p.description,p.qte,p.prixT,p.prixU from Panier p where p.code=:code",Panier.class).setParameter("code", codeClient).getResultList();
         }
         
         public List<Panier> nomArticle(String codeClient){
@@ -39,6 +41,18 @@ public class PanierFacade extends AbstractFacade<Panier> {
         
         public List<Panier> prixTotal(String codeClient){
             return em.createQuery("select sum(p.prixT) from Panier p where p.code=:code",Panier.class).setParameter("code", codeClient).getResultList();
+        }
+        
+        public void modifQte(int numero,int quantite,BigDecimal prix){
+            em.createQuery("update Panier p set p.qte=:qte, p.prixT=:prixT where p.numero=:numero",Panier.class).setParameter("qte", quantite).setParameter("prixT", prix).setParameter("numero", numero).executeUpdate();
+        }
+        
+        public void viderPanier(String codeClient){
+            em.createQuery("delete from Panier p where p.code=:code",Panier.class).setParameter("code",codeClient).executeUpdate();
+        }
+        
+        public void supArticle(int numero){
+            em.createQuery("delete from Panier p where p.numero=:numero",Panier.class).setParameter("numero", numero).executeUpdate();
         }
 }
 
