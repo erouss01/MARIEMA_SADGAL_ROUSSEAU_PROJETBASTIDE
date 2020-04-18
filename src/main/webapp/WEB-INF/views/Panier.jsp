@@ -66,7 +66,7 @@
                     Total <text>${total[0]}€<text>
                     </div>
                     <div id="valider">
-                        <button>Commander</button>
+                        <button onclick="doPostcom();">Commander</button>
                         <button onclick="doPostvider();">Vider le panier</button>
                     </div>
                 </div>

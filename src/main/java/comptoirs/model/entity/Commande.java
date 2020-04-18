@@ -32,16 +32,15 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
 	@NamedQuery(name = "Commande.findAll", query = "SELECT c FROM Commande c"),
 	@NamedQuery(name = "Commande.findByNumero", query = "SELECT c FROM Commande c WHERE c.numero = :numero"),
-	@NamedQuery(name = "Commande.findBySaisieLe", query = "SELECT c FROM Commande c WHERE c.saisieLe = :saisieLe"),
 	@NamedQuery(name = "Commande.findByEnvoyeeLe", query = "SELECT c FROM Commande c WHERE c.envoyeeLe = :envoyeeLe"),
-	@NamedQuery(name = "Commande.findByPort", query = "SELECT c FROM Commande c WHERE c.port = :port"),
 	@NamedQuery(name = "Commande.findByDestinataire", query = "SELECT c FROM Commande c WHERE c.destinataire = :destinataire"),
 	@NamedQuery(name = "Commande.findByAdresseLivraison", query = "SELECT c FROM Commande c WHERE c.adresseLivraison = :adresseLivraison"),
 	@NamedQuery(name = "Commande.findByVilleLivraison", query = "SELECT c FROM Commande c WHERE c.villeLivraison = :villeLivraison"),
 	@NamedQuery(name = "Commande.findByRegionLivraison", query = "SELECT c FROM Commande c WHERE c.regionLivraison = :regionLivraison"),
 	@NamedQuery(name = "Commande.findByCodePostalLivrais", query = "SELECT c FROM Commande c WHERE c.codePostalLivrais = :codePostalLivrais"),
 	@NamedQuery(name = "Commande.findByPaysLivraison", query = "SELECT c FROM Commande c WHERE c.paysLivraison = :paysLivraison"),
-	@NamedQuery(name = "Commande.findByRemise", query = "SELECT c FROM Commande c WHERE c.remise = :remise")})
+	@NamedQuery(name = "Commande.findByRemise", query = "SELECT c FROM Commande c WHERE c.remise = :remise"),
+	@NamedQuery(name = "Commande.findByClient", query = "SELECT c FROM Commande c WHERE c.client = :client")})
 public class Commande implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -52,18 +51,9 @@ public class Commande implements Serializable {
         @Column(name = "NUMERO")
 	private Integer numero;
 
-	@Basic(optional = false)
-        @Column(name = "SAISIE_LE")
-        @Temporal(TemporalType.DATE)
-	private Date saisieLe;
-
-	@Column(name = "ENVOYEE_LE")
+	@Column(name = "SAISIE_LE")
         @Temporal(TemporalType.DATE)
 	private Date envoyeeLe;
-
-	// @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-	@Column(name = "PORT")
-	private BigDecimal port;
 
 	@Column(name = "DESTINATAIRE")
 	private String destinataire;
@@ -90,9 +80,8 @@ public class Commande implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "commande1")
 	private Collection<Ligne> ligneCollection;
 
-	@JoinColumn(name = "CLIENT", referencedColumnName = "CODE")
-        @ManyToOne(optional = false)
-	private Client client;
+	@Column(name = "CLIENT")
+	private String client;
 
 	public Commande() {
 	}
@@ -101,10 +90,17 @@ public class Commande implements Serializable {
 		this.numero = numero;
 	}
 
-	public Commande(Integer numero, Date saisieLe, BigDecimal remise) {
+	public Commande(Integer numero,Date envoyeeLe,String destinataire,String adresseLivraison,String villeLivraison,String regionLivraison,String codePostalLivrais,String paysLivraison,BigDecimal remise,String client) {
 		this.numero = numero;
-		this.saisieLe = saisieLe;
+                this.envoyeeLe=envoyeeLe;
+                this.destinataire=destinataire;
+                this.adresseLivraison=adresseLivraison;
+                this.villeLivraison=villeLivraison;
+                this.regionLivraison=regionLivraison;
+                this.codePostalLivrais=codePostalLivrais;
+                this.paysLivraison=paysLivraison;
 		this.remise = remise;
+                this.client=client;
 	}
 
 	public Integer getNumero() {
@@ -115,13 +111,6 @@ public class Commande implements Serializable {
 		this.numero = numero;
 	}
 
-	public Date getSaisieLe() {
-		return saisieLe;
-	}
-
-	public void setSaisieLe(Date saisieLe) {
-		this.saisieLe = saisieLe;
-	}
 
 	public Date getEnvoyeeLe() {
 		return envoyeeLe;
@@ -129,14 +118,6 @@ public class Commande implements Serializable {
 
 	public void setEnvoyeeLe(Date envoyeeLe) {
 		this.envoyeeLe = envoyeeLe;
-	}
-
-	public BigDecimal getPort() {
-		return port;
-	}
-
-	public void setPort(BigDecimal port) {
-		this.port = port;
 	}
 
 	public String getDestinataire() {
@@ -204,11 +185,11 @@ public class Commande implements Serializable {
 		this.ligneCollection = ligneCollection;
 	}
 
-	public Client getClient() {
+	public String getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(String client) {
 		this.client = client;
 	}
 
