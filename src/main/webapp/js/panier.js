@@ -27,7 +27,6 @@ function doPostplus(btn,qte,prixU){
     var num=btn.parentElement.parentElement.parentElement.getAttribute("id");
     qte=qte+1;
     var prixT=qte*prixU;
-    alert("num="+num+",qte="+qte+",vide="+0+",prix="+prixT+",commander="+0);
     document.getElementById("articlepanier").value=num+","+qte+","+0+","+prixT+","+0;
     setTimeout(envoyer,500);
 } 
@@ -59,7 +58,7 @@ function envoyer(){
     document.getElementById("modifPanier").submit();
 }
 
-function doPostcom(){
-    document.getElementById("articlepanier").value=0+","+0+","+0+","+0+","+1;
+function doPostcom(total){
+    document.getElementById("articlepanier").value=0+","+0+","+0+","+0+","+1+","+total;
     setTimeout(envoyer,500);
 }

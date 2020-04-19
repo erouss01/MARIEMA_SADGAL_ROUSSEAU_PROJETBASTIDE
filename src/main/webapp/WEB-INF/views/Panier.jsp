@@ -26,7 +26,7 @@
                 <input id="articlepanier" name=prdt type="text"/>
             </form>
             <c:if test="${not empty panier}">
-                <h1>Votre panier</h1>
+                <h1>Mon panier</h1>
                 <div id="liste">
                 <c:forEach var="article" items="${panier}">
                     <div class="blockarticle">
@@ -66,7 +66,7 @@
                     Total <text>${total[0]}€<text>
                     </div>
                     <div id="valider">
-                        <button onclick="doPostcom();">Commander</button>
+                        <button onclick="doPostcom(${total[0]});">Commander</button>
                         <button onclick="doPostvider();">Vider le panier</button>
                     </div>
                 </div>

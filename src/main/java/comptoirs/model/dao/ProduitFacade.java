@@ -29,4 +29,8 @@ public class ProduitFacade extends AbstractFacade<Produit> {
 		super(Produit.class);
 	}
 	
+        public void modifStock(int ref,short stock,short commande){
+            em.createQuery("update Produit p set p.unitesEnStock=:instock, p.unitesCommandees=:inorder where p.reference=:inref",Produit.class).setParameter("instock", stock).setParameter("inorder", commande).setParameter("inref", ref).executeUpdate();
+        }
+        
 }

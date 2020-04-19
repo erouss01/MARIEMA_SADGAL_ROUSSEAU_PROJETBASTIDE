@@ -40,6 +40,7 @@ import javax.xml.bind.annotation.XmlTransient;
 	@NamedQuery(name = "Commande.findByCodePostalLivrais", query = "SELECT c FROM Commande c WHERE c.codePostalLivrais = :codePostalLivrais"),
 	@NamedQuery(name = "Commande.findByPaysLivraison", query = "SELECT c FROM Commande c WHERE c.paysLivraison = :paysLivraison"),
 	@NamedQuery(name = "Commande.findByRemise", query = "SELECT c FROM Commande c WHERE c.remise = :remise"),
+	@NamedQuery(name = "Commande.findByPort", query = "SELECT c FROM Commande c WHERE c.prixT = :port"),
 	@NamedQuery(name = "Commande.findByClient", query = "SELECT c FROM Commande c WHERE c.client = :client")})
 public class Commande implements Serializable {
 
@@ -50,10 +51,16 @@ public class Commande implements Serializable {
         @Basic(optional = false)
         @Column(name = "NUMERO")
 	private Integer numero;
+                
+	@Column(name = "CLIENT")
+	private String client;
 
-	@Column(name = "SAISIE_LE")
+	@Column(name = "ENVOYEE_LE")
         @Temporal(TemporalType.DATE)
 	private Date envoyeeLe;
+        
+        @Column(name = "PORT")
+	private BigDecimal prixT;
 
 	@Column(name = "DESTINATAIRE")
 	private String destinataire;
@@ -80,8 +87,6 @@ public class Commande implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "commande1")
 	private Collection<Ligne> ligneCollection;
 
-	@Column(name = "CLIENT")
-	private String client;
 
 	public Commande() {
 	}
@@ -119,6 +124,14 @@ public class Commande implements Serializable {
 	public void setEnvoyeeLe(Date envoyeeLe) {
 		this.envoyeeLe = envoyeeLe;
 	}
+        
+        public BigDecimal getTotal(){
+            return prixT;
+        }
+        
+        public void setTotal(BigDecimal prix){
+            this.prixT=prix;
+        }
 
 	public String getDestinataire() {
 		return destinataire;

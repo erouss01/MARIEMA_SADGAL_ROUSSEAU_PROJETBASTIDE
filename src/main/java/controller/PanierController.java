@@ -12,10 +12,13 @@ package controller;
 
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.dao.CommandeFacade;
+import comptoirs.model.dao.LigneFacade;
 import comptoirs.model.dao.PanierFacade;
 import comptoirs.model.dao.ProduitFacade;
 import comptoirs.model.entity.Client;
 import comptoirs.model.entity.Commande;
+import comptoirs.model.entity.Ligne;
+import comptoirs.model.entity.LignePK;
 import comptoirs.model.entity.Panier;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -56,6 +59,12 @@ public class PanierController {
         
         @Inject
         ClientFacade clientdao;
+        
+        @Inject
+        LigneFacade lignedao;
+        
+        @Inject
+        ProduitFacade produitdao;
 
 	@Inject
 	Models models;
@@ -72,7 +81,7 @@ public class PanierController {
         
         @POST
         @ValidateOnExecution(type = ExecutableType.ALL)
-        public void PanierClient(
+        public String PanierClient(
                 @FormParam("prdt") String produit) {
 
             String[]tab=produit.split(",");
@@ -96,7 +105,7 @@ public class PanierController {
                                 show();
                             }
                         }else{
-                            
+                            int total=Integer.parseInt(tab[5]);
                             Commande nouvelle=new Commande();
                             DateFormat sform=new SimpleDateFormat("yyyy-mm-dd");
                             Client client=new Client();
@@ -110,7 +119,29 @@ public class PanierController {
                             nouvelle.setPaysLivraison(client.getPays());
                             nouvelle.setRemise(new BigDecimal(0));
                             nouvelle.setClient(client.getCode());
+                            BigDecimal prix=new BigDecimal(total);
+                            nouvelle.setTotal(prix);
                             facade.create(nouvelle);
+                            
+                            LignePK new_LPK=new LignePK();
+                            new_LPK.setCommande(nouvelle.getNumero());
+                            for(Panier p : dao.findAll()){
+                                new_LPK.setProduit(p.getRef());
+                                short quantity=(short) p.getQte();
+                                Ligne new_ligne=new Ligne();
+                                new_ligne.setLignePK(new_LPK);
+                                new_ligne.setQuantite(quantity);
+                                lignedao.create(new_ligne);
+                                
+                                short uniteStock=produitdao.find(p.getRef()).getUnitesEnStock();
+                                short uniteOrder=produitdao.find(p.getRef()).getUnitesCommandees();
+                                uniteStock=(short) (uniteStock-quantity);
+                                uniteOrder=(short) (uniteOrder+quantity);
+                                produitdao.modifStock(p.getRef(), uniteStock, uniteOrder);
+                                
+                            }
+                            dao.viderPanier(profilsession.getCodeClient());
+                            return "Historique.jsp";
                         }
                     }
                 } catch (NullPointerException e) {
@@ -119,7 +150,9 @@ public class PanierController {
                     //On pourrait examiner l'exception pour vérifier sa cause exacte
                     models.put("databaseErrorMessage", "Erreur");
                 }
+                return null;
         }
+        
         
 }
 

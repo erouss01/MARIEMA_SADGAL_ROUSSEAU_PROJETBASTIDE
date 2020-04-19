@@ -85,8 +85,6 @@ public class Client implements Serializable {
 	@Column(name = "FAX")
 	private String fax;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
-	private Collection<Commande> commandeCollection;
 
 	public Client() {
 	}
@@ -188,14 +186,6 @@ public class Client implements Serializable {
 		this.fax = fax;
 	}
 
-	@XmlTransient
-	public Collection<Commande> getCommandeCollection() {
-		return commandeCollection;
-	}
-
-	public void setCommandeCollection(Collection<Commande> commandeCollection) {
-		this.commandeCollection = commandeCollection;
-	}
 
 	@Override
 	public int hashCode() {

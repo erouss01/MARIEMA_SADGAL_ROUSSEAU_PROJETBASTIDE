@@ -8,6 +8,15 @@
  */
 var disp="none";
 
+
+var date=document.getElementsByClassName("date");
+for(i=0;i<date.length;i++){
+    var dateD=date[i].textContent;
+    var tab=dateD.split(" ");
+    var dateI=tab[0]+" "+tab[2]+" "+tab[1]+" "+tab[5];
+    date[i].textContent=dateI;
+}
+
 function afficher(){
     if(disp==="none"){
         document.getElementById("favDialog").style.display="block";
@@ -82,3 +91,13 @@ function tri(c){
     document.getElementById("produitP").innerHTML = global.localStorage.getItem("mySharedData");
 
 }(window));
+
+
+function voir(commande){
+    document.getElementById("numeroCommande").value=commande;
+    setTimeout(envoyer,500);
+}
+
+function envoyer(){
+    document.getElementById("voirCommande").submit();
+}
