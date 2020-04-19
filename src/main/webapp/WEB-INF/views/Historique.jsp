@@ -18,7 +18,7 @@
         
         <header onload="afficher();"> 
             <div id="logo"> <a href="categories"> <img src="..\\image\\logo1.png" alt="Accueil"/> </a> </div>
-            <div id="articles" ><a href=#> <img src="..\\image\\plus.png" alt="articles"/> <br>Tous les articles </a></div>
+            <div id="articles" ><a href=produits> <img src="..\\image\\plus.png" alt="articles"/> <br>Tous les articles </a></div>
             <div id="compte" onclick="afficher();"> <img src="..\\image\\profil.png" alt="Compte"/><br>
                     Mon ESSA 
             </div> 
@@ -58,7 +58,7 @@
                         </div>
                         <div class="divprix">
                             <text class="prix">${commande[2]}&nbsp;€</text><br>
-                            <button class="details" onclick="Voir(${commande[0]});">Voir</button>
+                            <button class="details" onclick="voir(${commande[0]});">Voir</button>
                         </div>
                     </div>
                     

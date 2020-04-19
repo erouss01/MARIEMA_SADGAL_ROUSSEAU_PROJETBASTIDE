@@ -95,9 +95,10 @@ public class Commande implements Serializable {
 		this.numero = numero;
 	}
 
-	public Commande(Integer numero,Date envoyeeLe,String destinataire,String adresseLivraison,String villeLivraison,String regionLivraison,String codePostalLivrais,String paysLivraison,BigDecimal remise,String client) {
+	public Commande(Integer numero,Date envoyeeLe,BigDecimal prixT,String destinataire,String adresseLivraison,String villeLivraison,String regionLivraison,String codePostalLivrais,String paysLivraison,BigDecimal remise,String client) {
 		this.numero = numero;
                 this.envoyeeLe=envoyeeLe;
+                this.prixT=prixT;
                 this.destinataire=destinataire;
                 this.adresseLivraison=adresseLivraison;
                 this.villeLivraison=villeLivraison;
@@ -129,8 +130,8 @@ public class Commande implements Serializable {
             return prixT;
         }
         
-        public void setTotal(BigDecimal prix){
-            this.prixT=prix;
+        public void setTotal(BigDecimal prixT){
+            this.prixT=prixT;
         }
 
 	public String getDestinataire() {

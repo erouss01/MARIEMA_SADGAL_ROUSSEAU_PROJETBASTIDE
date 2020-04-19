@@ -6,6 +6,7 @@
 package comptoirs.model.dao;
 
 import comptoirs.model.entity.Ligne;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -29,4 +30,7 @@ public class LigneFacade extends AbstractFacade<Ligne> {
 		super(Ligne.class);
 	}
 	
+        public List<Ligne> commandeClient(int commande){
+            return em.createQuery("select l from Ligne l where l.lignePK.commande = :commande",Ligne.class).setParameter("commande", commande).getResultList();
+        }
 }

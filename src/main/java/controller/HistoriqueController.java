@@ -6,13 +6,23 @@
 package controller;
 
 import comptoirs.model.dao.CommandeFacade;
+import comptoirs.model.dao.LigneFacade;
+import comptoirs.model.dao.ProduitFacade;
+import comptoirs.model.entity.Commande;
+import comptoirs.model.entity.Ligne;
+import comptoirs.model.entity.Produit;
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import session.ProfilSession;
+import javax.ejb.EJBException;
 
 /**
  *
@@ -26,6 +36,12 @@ public class HistoriqueController {
     CommandeFacade daoCommande;
     
     @Inject
+    LigneFacade daoLigne;
+    
+    @Inject
+    ProduitFacade daoProduit;
+    
+    @Inject
     Models models;
     
     @Inject
@@ -35,5 +51,22 @@ public class HistoriqueController {
     public void show() {
         String code=profilsession.getCodeClient();
         models.put("historique",daoCommande.getHistorique(code));
+    }
+    
+    @POST
+    public String getCommande(
+        @FormParam("numero") String numero){
+            int numeroCommande=Integer.parseInt(numero);
+            Commande commande=daoCommande.find(numeroCommande);
+            models.put("commande",commande);
+            List<Produit>produit=new ArrayList<>();
+            List<Ligne> ligne=daoLigne.commandeClient(numeroCommande);
+            for(Ligne l:ligne){
+                Produit p=daoProduit.find(l.getProduit1().getReference());
+                produit.add(p);
+            }
+            models.put("ligne",ligne);
+            models.put("produit",produit);
+            return "commandes.jsp";
     }
 }

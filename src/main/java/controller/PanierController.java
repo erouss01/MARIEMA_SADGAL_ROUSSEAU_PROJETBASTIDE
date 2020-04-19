@@ -141,6 +141,7 @@ public class PanierController {
                                 
                             }
                             dao.viderPanier(profilsession.getCodeClient());
+                            //models.put("historique",facade.getHistorique(profilsession.getCodeClient()));
                             return "Historique.jsp";
                         }
                     }

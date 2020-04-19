@@ -21,7 +21,7 @@ import javax.ws.rs.Path;
 @View("showAllCategories.jsp")
 public class CategorieController {
 	@Inject // Le DAO généré par netBeans
-	ClientFacade dao;
+	CategorieFacade dao;
 
 	@Inject
 	Models models;
