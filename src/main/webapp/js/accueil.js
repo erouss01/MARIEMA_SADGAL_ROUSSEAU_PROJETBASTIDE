@@ -76,19 +76,6 @@ function tri(c){
     c.style.background="#abcdef";
 }
 
-/*   
-    (function (global) {
-    document.getElementById("article").addEventListener("click", function () {
-        global.localStorage.setItem("SharedData", document.getElementById("nom").innerHTML);
-       window.location='showAllProduits.jsp'
-    }, false);
-}(window));
-
-(function (global) {
-    document.getElementById("produitP").innerHTML = global.localStorage.getItem("mySharedData");
-
-}(window));
-*/
 
 function voir(commande){
     document.getElementById("numeroCommande").value=commande;

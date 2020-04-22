@@ -67,9 +67,17 @@ public class HistoriqueController {
             models.put("commande",commande);
             List<Produit>produit=new ArrayList<>();
             List<Ligne> ligne=daoLigne.commandeClient(numeroCommande);
-            for(Ligne l:ligne){
-                Produit p=daoProduit.find(l.getProduit1().getReference());
-                produit.add(p);
+            if(ligne.size()>0){
+                System.out.println("PAS VIDE");
+                for(Ligne l:ligne){
+                System.out.println("LIGNE:"+ligne);
+                System.out.println("PROD:"+l.getLignePK().getProduit());
+                int refprod=l.getLignePK().getProduit();
+                System.out.println("REF:"+refprod);
+                    Produit p=daoProduit.find(refprod);
+                System.out.println("PRODUIT"+p);
+                    produit.add(p);
+                }
             }
             models.put("ligne",ligne);
             models.put("produit",produit);
