@@ -6,6 +6,8 @@
  * Created on : 03 mars 2020, 15:30:22
     Author     : Kency
  */
+/* global fetch */
+
 var disp="none";
 
 
@@ -29,11 +31,10 @@ function afficher(){
     }
 }
 
-
 function ajouter_panier(p){
     var ref=p.value;
     document.getElementById("articlepanier").value=ref;
-    
+    //ajaxCall(ref);
     setTimeout(envoyer_panier,500);
 }
 
@@ -79,7 +80,7 @@ function tri(c){
     c.style.background="#abcdef";
 }
 
-   
+/*   
     (function (global) {
     document.getElementById("article").addEventListener("click", function () {
         global.localStorage.setItem("SharedData", document.getElementById("nom").innerHTML);
@@ -91,7 +92,7 @@ function tri(c){
     document.getElementById("produitP").innerHTML = global.localStorage.getItem("mySharedData");
 
 }(window));
-
+*/
 
 function voir(commande){
     document.getElementById("numeroCommande").value=commande;
@@ -101,3 +102,27 @@ function voir(commande){
 function envoyer(){
     document.getElementById("voirCommande").submit();
 }
+
+/*
+let listeButton = document.getElementsByClassName("addpanier");
+for(button of listeButton){
+	button.addEventListener("click",ajaxCall);
+}*/
+ /*function ajaxCall(ref) {
+	let myHeaders = new Headers();
+	myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        console.log("REF"+ref);
+	const fetchOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body:'{"article":"'+ref+'"}'
+	};
+	fetch("produits",fetchOptions)
+	.then( (response) => {
+		console.log(response.text());
+	});
+
+}*/
+
+
+

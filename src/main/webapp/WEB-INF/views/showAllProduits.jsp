@@ -42,7 +42,7 @@
 			<span style="color: red;">${databaseErrorMessage}</span>
             </c:if>
             <div id="rayon">
-                <form id="ajoutPanier" method="post">
+                <form id="ajoutPanier" method="post" >
                     <input id="articlepanier" name=article type="text"/>
                 </form>
                 <%int nb=1;

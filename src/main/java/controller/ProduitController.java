@@ -53,7 +53,7 @@ public class ProduitController {
         @ValidateOnExecution(type = ExecutableType.ALL)
         public void PanierClient(
                 @FormParam("article") String article) {
-
+            System.out.println("ARTICLE"+article);
             
             String[]tab=article.split(",");
             int numero=1;
