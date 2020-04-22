@@ -148,7 +148,7 @@ public class PanierController {
                                 
                             }
                             dao.viderPanier(profilsession.getCodeClient());
-                            return "Historique.jsp";
+                            produitdao.majIndispo();
                         }
                     }
                 } catch (NullPointerException e) {

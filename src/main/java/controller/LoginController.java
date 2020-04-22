@@ -8,6 +8,8 @@ package controller;
 import comptoirs.model.dao.CategorieFacade;
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.dao.CommandeFacade;
+import comptoirs.model.dao.PanierFacade;
+import comptoirs.model.dao.ProduitFacade;
 import comptoirs.model.entity.Client;
 import comptoirs.model.entity.Commande;
 import java.util.logging.Level;
@@ -39,6 +41,13 @@ public class LoginController {
     @Inject
     private ProfilSession profilsession;
 
+    
+    @Inject
+    PanierFacade panierdao;
+
+    @Inject
+    ProduitFacade produitdao;
+    
     @GET
     public void show() {
         profilsession.logout();
@@ -54,6 +63,11 @@ public class LoginController {
             if(c.getContact().equals(contactClient)){
                 models.put("categories", dao.findAll());
                 profilsession.login(codeClient);
+                
+                String code=profilsession.getCodeClient();
+                models.put("inpanier",panierdao.nomArticle(code));
+                models.put("categories", dao.findAll());
+                produitdao.majDispo();
                 return "showAllCategories.jsp";
             }else{
                  models.put("databaseErrorMessage", "Le pseudo/ mot de passe est incorrect");

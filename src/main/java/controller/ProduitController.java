@@ -50,7 +50,8 @@ public class ProduitController {
 	public void show() {
             String code=profilsession.getCodeClient();
             models.put("inpanier",facade.nomArticle(code));
-            models.put("produits", dao.findAll());
+            //models.put("produits", dao.findAll());
+            models.put("produits", dao.produitDispo());
 	}
         
         @POST

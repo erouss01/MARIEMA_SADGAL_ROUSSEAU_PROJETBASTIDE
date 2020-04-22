@@ -3,6 +3,7 @@ package controller;
 import comptoirs.model.dao.CategorieFacade;
 import comptoirs.model.dao.ClientFacade;
 import comptoirs.model.dao.PanierFacade;
+import comptoirs.model.dao.ProduitFacade;
 import comptoirs.model.entity.Client;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,9 @@ public class CategorieController {
 
 	@Inject
         PanierFacade facade;
+        
+        @Inject
+        ProduitFacade produitdao;
 
 	@Inject
 	Models models;
@@ -39,6 +43,7 @@ public class CategorieController {
             String code=profilsession.getCodeClient();
             models.put("inpanier",facade.nomArticle(code));
             models.put("categories", dao.findAll());
+            produitdao.majDispo();
 	}
       
 }

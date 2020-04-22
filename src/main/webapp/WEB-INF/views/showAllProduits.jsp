@@ -51,21 +51,18 @@
                 <form id="ajoutPanier" method="post" >
                     <input id="articlepanier" name=article type="text"/>
                 </form>
-                <%int nb=1;
+                <%
+                  int nb=1;
                   int in=0;
                 %>
                 
                  <c:forEach var="produit" items="${produits}">
                     <% in=0; %>
-                    <% 
-                        String debut_nom="../image/";
-                        String fin_nom=".jpg ";
-                        String nom=debut_nom+nb+fin_nom;
-                    %>
+                   
                     <div>
                         <h3 id=h${produit.reference}>${mvc.encoders.html(produit.nom)}</h3>
                         <br>
-                        <img class="produit" alt=${produit.reference} src=<%out.print(nom); %>/><br>
+                        <img class="produit" alt=${produit.reference} src=../image/${produit.reference}.jpg /><br>
                         
                         <h4 id=h${produit.reference}>${mvc.encoders.html(produit.prixUnitaire)}€</h4>
                         <c:if test="${not empty inpanier}">
