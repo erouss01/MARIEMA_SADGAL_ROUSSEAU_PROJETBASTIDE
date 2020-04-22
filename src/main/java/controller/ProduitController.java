@@ -22,7 +22,6 @@ import javax.validation.Valid;
 import javax.ws.rs.BeanParam;
 import form.CategorieForm;
 import java.math.BigDecimal;
-import javafx.scene.media.Media;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;

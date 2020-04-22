@@ -206,7 +206,7 @@ select{
 }
 
 #graphique{
-    padding-left:20px;
+    padding-left:5px;
     background:transparent;
 }
 
@@ -227,5 +227,5 @@ select{
 }
 
 #gauche{
-    margin-left:50px;
+    margin-left:10px;
 }

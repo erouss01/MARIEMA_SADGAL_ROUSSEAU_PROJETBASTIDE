@@ -24,8 +24,8 @@
                 var chart = new google.visualization.PieChart(document.getElementById('graphique'));
                 // Formatage des options du graphique
                 var options = {
-                  width:700,
-                  height:500,
+                  width:450,
+                  height:450,
                   backgroundColor:'#f5f4f2',
                   is3D:true
                 };
