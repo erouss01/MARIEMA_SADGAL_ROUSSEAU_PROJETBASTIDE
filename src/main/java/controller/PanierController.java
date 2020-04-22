@@ -106,7 +106,11 @@ public class PanierController {
                             }else{
                                 System.out.println("Modifier quantité");
                                 BigDecimal prix=new BigDecimal(tab[3]);
-                                dao.modifQte(numero,qte,prix);
+                                int reference=dao.find(numero).getRef();
+                                short enstock=produitdao.find(reference).getUnitesEnStock();
+                                if((short)qte<=enstock){
+                                    dao.modifQte(numero,qte,prix);
+                                }                                
                                 //dao.find(numero).setPrixT(prix);
                                 show();
                             }
