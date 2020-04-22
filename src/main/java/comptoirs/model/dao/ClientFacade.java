@@ -6,6 +6,7 @@
 package comptoirs.model.dao;
 
 import comptoirs.model.entity.Client;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,7 @@ public class ClientFacade extends AbstractFacade<Client> {
 	public ClientFacade() {
 		super(Client.class);
 	}
+        
+        
 	
 }

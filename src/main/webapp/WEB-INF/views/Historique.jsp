@@ -28,7 +28,7 @@
         <div id="favDialog">
             <a href="Profil"><div id="profil">Accéder à mon profil <img src="..\\image\\fleche.png" alt="Profil"/></div></a>
             <a href="Historique"><div id="historique">Historique des commandes <img src="..\\image\\fleche.png" alt="Historique"/></div></a>
-            <a href="Logout"><div id="deconnexion">Déconnexion <img src="..\\image\\croix.png" alt="Deconnexion"/></div></a>
+            <a href="Login"><div id="deconnexion">Déconnexion <img src="..\\image\\croix.png" alt="Deconnexion"/></div></a>
         </div>
 
         <div id="voile">

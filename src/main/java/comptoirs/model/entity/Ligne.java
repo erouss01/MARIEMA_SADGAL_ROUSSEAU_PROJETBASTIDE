@@ -38,6 +38,7 @@ public class Ligne implements Serializable {
 	@JoinColumn(name = "COMMANDE", referencedColumnName = "NUMERO", insertable = false, updatable = false)
         @ManyToOne(optional = false)
 	private Commande commande1;
+        // commande1 =commande un et pas commande L
 
 	@JoinColumn(name = "PRODUIT", referencedColumnName = "REFERENCE", insertable = false, updatable = false)
         @ManyToOne(optional = false)

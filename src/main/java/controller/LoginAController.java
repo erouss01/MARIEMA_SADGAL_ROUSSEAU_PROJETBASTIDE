@@ -8,6 +8,7 @@ package controller;
 
     import comptoirs.model.dao.CategorieFacade;
 import comptoirs.model.dao.ClientFacade;
+import comptoirs.model.dao.CommandeFacade;
 import comptoirs.model.entity.Client;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,10 +29,15 @@ import javax.ws.rs.Path;
 @Path("LoginA")
 @View("LoginA.jsp")
 public class LoginAController {
-    @Inject // Le DAO (auto-généré) qui gère les entités "Client"
-    ClientFacade facade;
-	@Inject // Le DAO généré par netBeans
-	CategorieFacade dao;
+	@Inject
+	CategorieFacade daoCat;
+        
+        @Inject
+        ClientFacade daoClient;
+        
+        @Inject
+        CommandeFacade daoCommande;
+        
 
 	@Inject
 	Models models;
@@ -49,7 +55,9 @@ public class LoginAController {
                
              if(codeClient.equals("jachete")){
                 if(contactClient.equals("ESSA")){
-                    models.put("categories", dao.findAll());
+                    models.put("categories", daoCat.findAll());
+                    models.put("clients", daoClient.findAll());
+                    models.put("payss",daoCommande.getPays());
          return "categorieEditor.jsp";
             }
             

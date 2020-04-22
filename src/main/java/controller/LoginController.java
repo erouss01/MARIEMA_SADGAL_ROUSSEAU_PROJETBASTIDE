@@ -41,7 +41,7 @@ public class LoginController {
 
     @GET
     public void show() {
-
+        profilsession.logout();
     }
 
     @POST
