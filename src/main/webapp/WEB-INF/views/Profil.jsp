@@ -4,7 +4,8 @@
     Author     : erouss01
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +21,14 @@
         <div id="compte" onclick="afficher();"> <img src="..\\image\\profil.png" alt="profil"/><br>
                 Mon ESSA 
         </div> 
-        <div id="panier"> <a href=""> <img src="..\\image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
+        <c:choose>
+            <c:when test="${empty inpanier}">
+                <div id="panier"> <a href="Panier"> <img src="..\\image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
+            </c:when>    
+            <c:otherwise>
+                <div id="panier"> <a href="Panier"> <img src="..\\image\\panier2.png" alt="panier"/><br>Mon panier </a> </div>  
+            </c:otherwise>
+        </c:choose>
 
         </header>
         

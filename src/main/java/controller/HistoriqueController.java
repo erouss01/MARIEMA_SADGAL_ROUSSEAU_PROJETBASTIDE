@@ -7,6 +7,7 @@ package controller;
 
 import comptoirs.model.dao.CommandeFacade;
 import comptoirs.model.dao.LigneFacade;
+import comptoirs.model.dao.PanierFacade;
 import comptoirs.model.dao.ProduitFacade;
 import comptoirs.model.entity.Commande;
 import comptoirs.model.entity.Ligne;
@@ -42,6 +43,9 @@ public class HistoriqueController {
     ProduitFacade daoProduit;
     
     @Inject
+    PanierFacade facade;
+    
+    @Inject
     Models models;
     
     @Inject
@@ -50,12 +54,14 @@ public class HistoriqueController {
     @GET
     public void show() {
         String code=profilsession.getCodeClient();
+        models.put("inpanier",facade.nomArticle(code));
         models.put("historique",daoCommande.getHistorique(code));
     }
     
     @POST
     public String getCommande(
         @FormParam("numero") String numero){
+            String code=profilsession.getCodeClient();
             int numeroCommande=Integer.parseInt(numero);
             Commande commande=daoCommande.find(numeroCommande);
             models.put("commande",commande);
@@ -67,6 +73,7 @@ public class HistoriqueController {
             }
             models.put("ligne",ligne);
             models.put("produit",produit);
+            models.put("inpanier",facade.nomArticle(code));
             return "commandes.jsp";
     }
 }

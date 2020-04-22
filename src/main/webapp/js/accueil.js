@@ -34,13 +34,9 @@ function afficher(){
 function ajouter_panier(p){
     var ref=p.value;
     document.getElementById("articlepanier").value=ref;
-    //ajaxCall(ref);
-    setTimeout(envoyer_panier,500);
+    ajaxCall(ref);
 }
 
-function envoyer_panier(){
-    document.getElementById("ajoutPanier").submit();
-}
 
 function add(c){
     var num=c.value;
@@ -103,26 +99,23 @@ function envoyer(){
     document.getElementById("voirCommande").submit();
 }
 
-/*
-let listeButton = document.getElementsByClassName("addpanier");
-for(button of listeButton){
-	button.addEventListener("click",ajaxCall);
-}*/
- /*function ajaxCall(ref) {
+function ajaxCall(ref) {
 	let myHeaders = new Headers();
-	myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+	myHeaders.append("Content-Type", "application/json");
         console.log("REF"+ref);
 	const fetchOptions = {
 		method: 'POST',
 		headers: myHeaders,
-		body:'{"article":"'+ref+'"}'
+		body:ref
 	};
-	fetch("produits",fetchOptions)
+	fetch("produits/addPanier",fetchOptions)
 	.then( (response) => {
-		console.log(response.text());
+            console.log(response.text());
+            document.querySelector("#btn"+ref+" img").setAttribute("src","../image/caddieok.jpg");
+            document.querySelector("#panier img").setAttribute("src","..\\image\\panier2.png");
 	});
 
-}*/
+}
 
 
 

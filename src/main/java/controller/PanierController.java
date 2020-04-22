@@ -41,9 +41,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
+import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
 
 
@@ -80,9 +83,9 @@ public class PanierController {
         }
         
         @POST
-        @ValidateOnExecution(type = ExecutableType.ALL)
-        public String PanierClient(
-                @FormParam("prdt") String produit) {
+        @Consumes(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.TEXT_PLAIN)
+        public String PanierClient(String produit) {
 
             String[]tab=produit.split(",");
             
@@ -92,19 +95,23 @@ public class PanierController {
                 int commander=Integer.parseInt(tab[4]);
                 try{
                     if(vide==1){
+                        System.out.println("Vider panier");
                         dao.viderPanier(profilsession.getCodeClient());
                     }else{
                         if(commander==0){
                             if(qte==0){
+                                System.out.println("Supprimer article");
                                 dao.supArticle(numero);
                                 show();
                             }else{
+                                System.out.println("Modifier quantité");
                                 BigDecimal prix=new BigDecimal(tab[3]);
                                 dao.modifQte(numero,qte,prix);
                                 //dao.find(numero).setPrixT(prix);
                                 show();
                             }
                         }else{
+                            System.out.println("Commander");
                             int total=Integer.parseInt(tab[5]);
                             Commande nouvelle=new Commande();
                             DateFormat sform=new SimpleDateFormat("yyyy-mm-dd");
@@ -141,7 +148,6 @@ public class PanierController {
                                 
                             }
                             dao.viderPanier(profilsession.getCodeClient());
-                            //models.put("historique",facade.getHistorique(profilsession.getCodeClient()));
                             return "Historique.jsp";
                         }
                     }

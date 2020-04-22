@@ -22,6 +22,10 @@ import javax.validation.Valid;
 import javax.ws.rs.BeanParam;
 import form.CategorieForm;
 import java.math.BigDecimal;
+import javafx.scene.media.Media;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import session.ProfilSession;
 
 
@@ -45,20 +49,18 @@ public class ProduitController {
 	@GET
 	public void show() {
             String code=profilsession.getCodeClient();
-                models.put("inpanier",facade.nomArticle(code));
-		models.put("produits", dao.findAll());
+            models.put("inpanier",facade.nomArticle(code));
+            models.put("produits", dao.findAll());
 	}
         
         @POST
-        @ValidateOnExecution(type = ExecutableType.ALL)
-        public void PanierClient(
-                @FormParam("article") String article) {
-            System.out.println("ARTICLE"+article);
-            
-            String[]tab=article.split(",");
+        @Path("addPanier")
+        @Consumes(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.TEXT_PLAIN)
+        public void PanierClient(String article) {
             int numero=1;
             String code=profilsession.getCodeClient();
-            int ref=Integer.parseInt(tab[0]);
+            int ref=Integer.parseInt(article);
             String nom=dao.find(ref).getNom();
             BigDecimal prix=dao.find(ref).getPrixUnitaire();
             int qte=1;

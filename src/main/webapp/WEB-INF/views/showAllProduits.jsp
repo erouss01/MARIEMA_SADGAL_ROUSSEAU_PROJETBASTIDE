@@ -15,14 +15,21 @@
         <link href="..\css\produit.css" rel="stylesheet"/>
     </head>
     <body>
-        
         <header onload="afficher();"> 
             <div id="logo"> <a href="categories"> <img src="..\\image\\logo1.png" alt="logo"/> </a> </div>
             <div id="articles" ><a href=#> <img src="..\\image\\plus.png" alt="articles"/> <br>Tous les articles </a></div>
             <div id="compte" onclick="afficher();"> <img src="..\\image\\profil.png" alt="profil"/><br>
                     Mon ESSA 
             </div> 
-            <div id="panier"> <a href="Panier"> <img src="..\\image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
+                    
+            <c:choose>
+                <c:when test="${empty inpanier}">
+                    <div id="panier"> <a href="Panier"> <img src="..\\image\\panier.png" alt="panier"/><br>Mon panier </a> </div>
+                </c:when>    
+                <c:otherwise>
+                    <div id="panier"> <a href="Panier"> <img src="..\\image\\panier2.png" alt="panier"/><br>Mon panier </a> </div>  
+                </c:otherwise>
+            </c:choose>
         </header>
         
         <div id="favDialog">
@@ -34,7 +41,6 @@
         <div id="voile">
                 .
         </div>
-        
         
         <div id="corps">
             <h1>Tous nos articles</h1>
@@ -73,11 +79,11 @@
                         <%
                           if(in==0){  
                         %>
-                        <button class="addpanier" value=${produit.reference} onclick="ajouter_panier(this);"><img src="../image/caddie.jpg"/></button>
+                        <button id=btn${produit.reference} class="addpanier" value=${produit.reference} onclick="ajouter_panier(this);"><img src="../image/caddie.jpg"/></button>
                         <%
                             }else{  
                         %>
-                        <button class="addpanier" value=${produit.reference} onclick="ajouter_panier(this); " disabled="true"><img src="../image/caddieok.jpg" title="Pour supprimer cette article rendez-vous dans votre panier!"/></button>
+                        <button id=btn${produit.reference} class="addpanier" value=${produit.reference} onclick="ajouter_panier(this); " disabled="true"><img src="../image/caddieok.jpg" title="Pour supprimer cette article rendez-vous dans votre panier!"/></button>
                         <%
                             }  
                         %>

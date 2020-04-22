@@ -10,6 +10,7 @@ package controller;
  * @author erouss01
  */
 import comptoirs.model.dao.ClientFacade;
+import comptoirs.model.dao.PanierFacade;
 import comptoirs.model.entity.Client;
 import javax.inject.Inject;
 import javax.mvc.Controller;
@@ -31,6 +32,9 @@ public class ProfilController {
 
     @Inject // Le DAO généré par netBeans
     ClientFacade dao;
+    
+    @Inject
+    PanierFacade facade;
 
     @Inject
     Models models;
@@ -39,7 +43,9 @@ public class ProfilController {
 
     @GET
     public void show() {
-        models.put("codeclient", dao.find(profilsession.getCodeClient()));
+        String code=profilsession.getCodeClient();
+        models.put("inpanier",facade.nomArticle(code));
+        models.put("codeclient", dao.find(code));
     }
 
     @POST

@@ -4,31 +4,15 @@
  * and open the template in the editor.
  */
 
-/*function doPostplus(qte){
-    var url="mvc/Panier";
-    var params="qte=2&num=22";
-    alert(params);
-    var xhr=new XMLHttpRequest();
-    xhr.open("POST",url,true);
-    xhr.setRequestHeader("Content-type","application/x-wwww-form-urlencoded");
-        
-    xhr.addEventListener('readystatechange',function(){
-       if(xhr.readyState===XMLHttpRequest.DONE && xhr.status===200){
-           alert("ok");
-       }else{
-           alert('notok');
-       }
-    });
-    
-    xhr.send(params);
-}*/
+
 
 function doPostplus(btn,qte,prixU){
     var num=btn.parentElement.parentElement.parentElement.getAttribute("id");
     qte=qte+1;
     var prixT=qte*prixU;
     document.getElementById("articlepanier").value=num+","+qte+","+0+","+prixT+","+0;
-    setTimeout(envoyer,500);
+    var ref=num+","+qte+","+0+","+prixT+","+0;
+    ajaxCall(ref);
 } 
 
 function doPostmoins(btn,qte,prixU){
@@ -36,21 +20,24 @@ function doPostmoins(btn,qte,prixU){
     qte=qte-1;
     var prixT=qte*prixU;
     document.getElementById("articlepanier").value=num+","+qte+","+0+","+prixT+","+0;
-    setTimeout(envoyer,500);
+    var ref=num+","+qte+","+0+","+prixT+","+0;
+    ajaxCall(ref);
 }
 
 function doPostvider(){
     var num=0;
     var qte=0;
     document.getElementById("articlepanier").value=num+","+qte+","+1+","+0+","+0;
-    setTimeout(envoyer,500);
+    var ref=num+","+qte+","+1+","+0+","+0;
+    ajaxCall(ref);
 }
 
 function doPostdel(btn){
     var num=btn.parentElement.getAttribute("id");
     var qte=0;
     document.getElementById("articlepanier").value=num+","+qte+","+0+","+0+","+0;
-    setTimeout(envoyer,500);
+    var ref=num+","+qte+","+0+","+0+","+0;
+    ajaxCall(ref);
 }
 
 
@@ -60,5 +47,42 @@ function envoyer(){
 
 function doPostcom(total){
     document.getElementById("articlepanier").value=0+","+0+","+0+","+0+","+1+","+total;
-    setTimeout(envoyer,500);
+    var ref=0+","+0+","+0+","+0+","+1+","+total;
+    //setTimeout(envoyer,500);
+    ajaxCom(ref);
+}
+
+function ajaxCall(ref) {
+	let myHeaders = new Headers();
+	myHeaders.append("Content-Type", "application/json");
+        console.log("REF"+ref);
+	const fetchOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body:ref
+	};
+	fetch("Panier",fetchOptions)
+	.then( (response) => {
+            console.log(response.text());
+            $("#corps").load("Panier #refresh");
+	});
+
+}
+
+
+function ajaxCom(ref) {
+	let myHeaders = new Headers();
+	myHeaders.append("Content-Type", "application/json");
+        console.log("REF"+ref);
+	const fetchOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body:ref
+	};
+	fetch("Panier",fetchOptions)
+	.then( (response) => {
+            console.log(response.text());
+            window.location.replace("Historique");
+	});
+
 }

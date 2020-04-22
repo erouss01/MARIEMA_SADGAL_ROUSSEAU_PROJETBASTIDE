@@ -12,6 +12,7 @@
         <title>ESSA</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="..\css\Panier.css" rel="stylesheet"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
     <body>
         <header> 
@@ -22,7 +23,7 @@
             ${test}
         </c:if>
        <div id="corps">
-           <form id="modifPanier" method="post">
+           <div id="refresh"><form id="modifPanier" method="post">
                 <input id="articlepanier" name=prdt type="text"/>
             </form>
             <c:if test="${not empty panier}">
@@ -81,7 +82,7 @@
                 </c:if>
                 
                 
-            
+           </div>
         </div>
         <script src="../js/panier.js" type="text/javascript"></script>
     </body>

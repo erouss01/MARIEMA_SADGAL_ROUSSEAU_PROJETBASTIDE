@@ -2,6 +2,7 @@ package controller;
 
 import comptoirs.model.dao.CategorieFacade;
 import comptoirs.model.dao.ClientFacade;
+import comptoirs.model.dao.PanierFacade;
 import comptoirs.model.entity.Client;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,6 +14,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import session.ProfilSession;
 
 
 
@@ -24,11 +26,19 @@ public class CategorieController {
 	CategorieFacade dao;
 
 	@Inject
+        PanierFacade facade;
+
+	@Inject
 	Models models;
+        
+        @Inject
+        private ProfilSession profilsession;
 
 	@GET
 	public void show() {
-		models.put("categories", dao.findAll());
+            String code=profilsession.getCodeClient();
+            models.put("inpanier",facade.nomArticle(code));
+            models.put("categories", dao.findAll());
 	}
       
 }
